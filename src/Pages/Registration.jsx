@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import registerLottie from '../../src/assets/Lottie/Register.json'
 import Lottie from 'lottie-react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
-import ContineWithGoogle from '../components/ContineWithGoogle';
+import useAxiosPublic from '../hook/useAxiosPublic';
 
 const Registration = () => {
     const { createAccountWithEmail, saveUserDetails } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [visiable, setVisiable] = useState(false);
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
         console.log(data);
@@ -20,7 +22,40 @@ const Registration = () => {
                 const user = userCredential.user;
                 if (user) {
                     saveUserDetails(data.name, data.photoURL)
-                        .then(() => console.log('profile updated'))
+                        .then(() => {
+                            // Profile Update Done
+                            const userInfo = {
+                                displayName: data.name,
+                                email: data.email,
+                                photoURL: data.photoURL,
+                                role: data.role,
+                            }
+                            axiosPublic.put("/users", userInfo)
+                                .then(res => {
+                                    if (res?.data?.upsertedId) {
+                                        if (userInfo?.role === "buyer") {
+                                            Swal.fire({
+                                                icon: "success",
+                                                title: "Congratulations!",
+                                                text: "You have recived 50 Coins for joining as Buyer.",
+                                            });
+                                        }
+
+                                        if (userInfo?.role === "worker") {
+                                            Swal.fire({
+                                                icon: "success",
+                                                title: "Congratulations!",
+                                                text: "You have recived 10 Coins for joining as Worker.",
+                                            });
+                                        }
+
+                                    }
+                                })
+                                .catch(error => console.log(error))
+
+                            navigate("/")
+
+                        })
                         .catch((error) => console.log("profile udpate failed"))
                 }
 
@@ -32,7 +67,7 @@ const Registration = () => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: `${errorCode === "auth/email-already-in-use" ? "This email is already registered" : "Something went wrong!"}`,                    
+                    text: `${errorCode === "auth/email-already-in-use" ? "This email is already registered" : "Something went wrong!"}`,
                 });
             });
 
@@ -92,11 +127,10 @@ const Registration = () => {
                                 {errors?.password?.type === 'pattern' && <p className='text-red-500 text-sm pt-1'>Password should be 6-20 characters, with at least one uppercase letter, one lowercase letter, one number, and one special character.</p>}
                             </div>
                             <div className="form-control mt-4">
-                                <input className='btn' type="submit" />
+                                <input value={"Register"} className='btn' type="submit" />
                             </div>
                         </form>
                         <div className='border-t border-1 border-blue-600 border-dotted mt-4'></div>
-                        <ContineWithGoogle></ContineWithGoogle>
                         <label className="label">
                             <p>Already have an Account? <Link to={'/login'} className='underline text-[#04B2B2] font-semibold'>Login</Link> </p>
                         </label>

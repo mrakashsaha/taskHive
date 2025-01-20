@@ -2,13 +2,44 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaGoogle } from 'react-icons/fa';
+import useAxiosPublic from '../hook/useAxiosPublic';
+import { useNavigate } from 'react-router-dom';
 
 const ContineWithGoogle = () => {
-    const { contineWithGoogle } = useContext(AuthContext);
+    const { contineWithGoogle, setLoading } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
+    const navigate = useNavigate();
     const handleGoogleLogin = () => {
         contineWithGoogle()
             .then((result) => {
                 const user = result.user;
+
+                if (user) {
+                    const userInfo = {
+                        displayName: user?.displayName,
+                        email: user?.email,
+                        photoURL: user?.photoURL,
+                        role: "worker",
+                    }
+
+                    axiosPublic.put("/users", userInfo)
+                    .then (res=> {
+                        if (res?.data?.upsertedId) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Congratulations!",
+                                text: "You have recived 10 Coins for joining as Worker.",
+                            });
+                        }
+                    })
+                    .catch(error=> {
+                        console.log (error);
+                        setLoading(false);
+                    })
+
+
+                    navigate("/")
+                }
 
             }).catch((error) => {
                 // Handle Errors here.

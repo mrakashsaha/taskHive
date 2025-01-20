@@ -15,19 +15,14 @@ const Login = () => {
     const navigate = useNavigate("/")
 
     const onSubmit = (data) => {
-        console.log(data);
         signInWithEmail(data.email, data.password)
         .then((userCredential) => {
-            // Signed in 
             const user = userCredential.user;
-            console.log (user)
-            // ...
             navigate("/")
           })
           .catch((error) => {
             console.log (error);
             const errorCode = error.code;
-            const errorMessage = error.message;
             Swal.fire({
                 icon: "error",
                 title: "Oops...",

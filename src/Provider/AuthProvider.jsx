@@ -12,18 +12,17 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
-                console.log(currentUser);
                 setUser(currentUser);
-                setLoading(false)
+                setLoading(false);
             } else {
-                console.log('no user found')
+                console.log('no user found');
                 setLoading(false);
             }
 
             return () => unsubscribe();
         });
 
-    }, [])
+    }, [user, loading]);
 
     const createAccountWithEmail = (email, password) => {
         setLoading(true);
@@ -42,6 +41,7 @@ const AuthProvider = ({ children }) => {
 
 
     const contineWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 
