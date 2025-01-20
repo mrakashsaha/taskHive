@@ -5,6 +5,7 @@ import Registration from "../Pages/Registration";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import UserProfile from "../Pages/UserProfile";
+import AddNewTask from "../Pages/AdminPages/AddNewTask";
 
 
 export const router = createBrowserRouter([
@@ -31,7 +32,13 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: <DashBoardLayout></DashBoardLayout>,
+    children: [
+      {
+        path: "/dashboard/addNewTask",
+        element: <AddNewTask></AddNewTask>,
+      },
+    ]
   },
 ]);

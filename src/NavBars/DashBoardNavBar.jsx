@@ -37,7 +37,7 @@ const DashBoardNavBar = () => {
                             </div>
                             <div className='hidden sm:block'>
                                 <h2>{userInfo?.displayName}</h2>
-                                <p className=''>Role: {userInfo?.role}</p>
+                                <p className=''>Role: {userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p>
                             </div>
                         </div>
                     </div>
