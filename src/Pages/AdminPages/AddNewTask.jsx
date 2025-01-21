@@ -67,9 +67,6 @@ const AddNewTask = () => {
 
         console.log(taskDoc);
 
-        console.log(moment(taskDoc.completionDate).local().format("LL"));
-
-
         axiosSecure.post("/tasks", taskDoc)
             .then(res => {
                 if (res.data.taskPostingResult.insertedId) {

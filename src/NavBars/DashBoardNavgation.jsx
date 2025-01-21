@@ -18,7 +18,7 @@ const DashBoardNavigation = () => {
         <>
             <li><NavLink to={"/dashboard/home"}>Home</NavLink></li>
             <li><NavLink to={"/dashboard/addNewTask"}>Add New Tasks</NavLink></li>
-            <li><NavLink to={"/dashboard/myTask"}>My Task's (`${myTask?.length}`)</NavLink></li>
+            <li><NavLink to={"/dashboard/myTask"}>My Task's ({myTask?.length})</NavLink></li>
             <li><NavLink to={"/dashboard/purchaseCoin"}>Purchase Coin</NavLink></li>
             <li><NavLink to={"/dashboard/paymentHistory"}>Payment History</NavLink></li>
         </>
