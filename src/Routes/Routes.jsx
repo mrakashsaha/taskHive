@@ -6,6 +6,8 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import UserProfile from "../Pages/UserProfile";
 import AddNewTask from "../Pages/AdminPages/AddNewTask";
+import PurchaseCoin from "../Pages/AdminPages/PurchaseCoin";
+import MyTask from "../Pages/AdminPages/MyTask";
 
 
 export const router = createBrowserRouter([
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addNewTask",
         element: <AddNewTask></AddNewTask>,
+      },
+      {
+        path: "/dashboard/purchaseCoin",
+        element: <PurchaseCoin></PurchaseCoin>,
+      },
+      {
+        path: "/dashboard/myTask",
+        element: <MyTask></MyTask>
       },
     ]
   },

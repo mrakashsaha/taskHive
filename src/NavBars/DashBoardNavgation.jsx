@@ -3,8 +3,10 @@ import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { TbLayoutSidebarLeftCollapseFilled } from 'react-icons/tb';
 import { Link, NavLink } from 'react-router-dom';
+import useMyTask from '../hook/useMyTask';
 
 const DashBoardNavigation = () => {
+    const { myTask } = useMyTask();
     const workerNavOptions =
         <>
             <li><NavLink to={"/dashboard"}>Home</NavLink></li>
@@ -16,7 +18,7 @@ const DashBoardNavigation = () => {
         <>
             <li><NavLink to={"/dashboard/home"}>Home</NavLink></li>
             <li><NavLink to={"/dashboard/addNewTask"}>Add New Tasks</NavLink></li>
-            <li><NavLink to={"/dashboard/myTask"}>My Task's</NavLink></li>
+            <li><NavLink to={"/dashboard/myTask"}>My Task's (`${myTask?.length}`)</NavLink></li>
             <li><NavLink to={"/dashboard/purchaseCoin"}>Purchase Coin</NavLink></li>
             <li><NavLink to={"/dashboard/paymentHistory"}>Payment History</NavLink></li>
         </>

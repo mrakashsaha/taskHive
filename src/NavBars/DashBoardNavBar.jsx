@@ -9,7 +9,8 @@ const DashBoardNavBar = () => {
     const {userInfo, isPending} = useUserInfo();
 
     if (isPending) {
-        return <Loading></Loading>
+        return;
+
     }
 
     console.log (userInfo)
