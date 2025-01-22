@@ -7,6 +7,7 @@ import useUserInfo from '../../hook/useUserInfo';
 import Loading from '../../components/Loading';
 import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../hook/useAxiosSecure';
+import useMyTask from '../../hook/useMyTask';
 
 const imageHositingAPI = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMAGE_BB}`
 
@@ -15,6 +16,7 @@ const AddNewTask = () => {
     const axiosSecure = useAxiosSecure();
 
     const { userInfo, isPending, refetch } = useUserInfo();
+    const {myTaskRefetch} = useMyTask();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     if (isPending) {
         return <Loading></Loading>;
@@ -73,12 +75,13 @@ const AddNewTask = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Your task has been posted sucessfully!",
+                        title: `Task has been posted <br> Charged Coin: ${(data?.payableAmount * data?.requiredWorkers)}`,
                         showConfirmButton: false,
                         timer: 1500
                       });
 
                       refetch();
+                      myTaskRefetch();
                 }
 
             })

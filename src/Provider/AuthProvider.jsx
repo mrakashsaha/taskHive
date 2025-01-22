@@ -8,6 +8,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const [paymentAmount, setPaymentAmount] = useState(0);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -65,6 +66,8 @@ const AuthProvider = ({ children }) => {
         signInWithEmail,
         contineWithGoogle,
         signOutFromAccount,
+        paymentAmount,
+        setPaymentAmount,
 
     }
 

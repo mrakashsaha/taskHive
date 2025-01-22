@@ -6,10 +6,12 @@ import { GrEdit } from 'react-icons/gr';
 import moment from 'moment';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import Swal from 'sweetalert2';
+import useUserInfo from '../../hook/useUserInfo';
 
 const MyTask = () => {
     const [formDefaultValue, setFormDefaultValue] = useState({});
     const { myTask, isMyTaskPending, myTaskRefetch } = useMyTask();
+    const { refetch } = useUserInfo();
     const axiosSecure = useAxiosSecure();
     if (isMyTaskPending) {
         return <Loading></Loading>;
@@ -19,7 +21,6 @@ const MyTask = () => {
 
     const handleUpdateModal = (id) => {
         document.getElementById('my_modal_5').showModal();
-        console.log(id);
         const formValueById = myTask.find(task => task._id === id);
         setFormDefaultValue(formValueById);
     }
@@ -61,8 +62,48 @@ const MyTask = () => {
                         timer: 1500
                     });
                 }
+                myTaskRefetch();
             })
-            .catch(error=>console.log(error));
+            .catch(error => console.log(error));
+
+    }
+
+
+    const handleDeleteTask = (id) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/deleteTask?id=${id}`)
+                    .then(res => {
+                        if (res?.data?.modifiedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Task has been deleted and Payable Coins Refunded!.",
+                                icon: "success"
+                            });
+
+                            refetch();
+                            myTaskRefetch();
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: "Opps..",
+                            text: "Somthing went Wrong!",
+                            icon: "error"
+                        });
+                        console.log(error);
+                    })
+            }
+        });
 
     }
 
@@ -83,6 +124,7 @@ const MyTask = () => {
                                     <th>Thumbnail</th>
                                     <th>Title</th>
                                     <th>Submission Details</th>
+                                    <th>Total Payable Coin</th>
                                     <th>Completion Date</th>
                                     <th>Update</th>
                                     <th>Delete</th>
@@ -106,12 +148,13 @@ const MyTask = () => {
                                         </td>
                                         <td>{task?.taskTitle}</td>
                                         <td>{task?.submissionInfo}</td>
+                                        <td>{task?.requiredWorkers * task?.payableAmount}</td>
                                         <td>{moment(task?.completionDate).local().format("LL")}</td>
                                         <td>
                                             <button onClick={() => handleUpdateModal(task?._id)} className="btn btn-circle btn-sm"> <GrEdit className='text-xl'></GrEdit> </button>
                                         </td>
                                         <td>
-                                            <button className="btn btn-circle btn-sm"> <RiDeleteBin6Line className='text-xl'></RiDeleteBin6Line> </button>
+                                            <button onClick={() => handleDeleteTask(task?._id)} className="btn btn-circle btn-sm"> <RiDeleteBin6Line className='text-xl'></RiDeleteBin6Line> </button>
                                         </td>
                                     </tr>)
                                 }
