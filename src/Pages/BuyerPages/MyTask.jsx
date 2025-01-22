@@ -86,7 +86,7 @@ const MyTask = () => {
                         if (res?.data?.modifiedCount) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Task has been deleted and Payable Coins Refunded!.",
+                                text: "Task deleted and Payable Coins has been Refunded",
                                 icon: "success"
                             });
 

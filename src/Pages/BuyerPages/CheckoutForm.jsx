@@ -96,6 +96,8 @@ const CheckoutForm = () => {
 
                 refetch();
 
+                navigate("/dashboard/paymentHistory")
+
             }
 
             else {

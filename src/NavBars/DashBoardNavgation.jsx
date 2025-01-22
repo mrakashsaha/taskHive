@@ -9,14 +9,14 @@ const DashBoardNavigation = () => {
     const { myTask } = useMyTask();
     const workerNavOptions =
         <>
-            <li><NavLink to={"/dashboard"}>Home</NavLink></li>
-            <li><NavLink to={"/dashboard"}>TaskList</NavLink></li>
-            <li><NavLink to={"/dashboard"}>My Submissions</NavLink></li>
-            <li><NavLink to={"/dashboard"}>Withdrawals</NavLink></li>
+            <li><NavLink to={"/dashboard/workerHome"}>Home</NavLink></li>
+            <li><NavLink to={"/dashboard/taskList"}>TaskList</NavLink></li>
+            <li><NavLink to={"/dashboard/mySubmissions"}>My Submissions</NavLink></li>
+            <li><NavLink to={"/dashboard/withdrawals"}>Withdrawals</NavLink></li>
         </>
     const buyerNavOptions =
         <>
-            <li><NavLink to={"/dashboard/home"}>Home</NavLink></li>
+            <li><NavLink to={"/dashboard/buyerHome"}>Home</NavLink></li>
             <li><NavLink to={"/dashboard/addNewTask"}>Add New Tasks</NavLink></li>
             <li><NavLink to={"/dashboard/myTask"}>My Task's ({myTask?.length})</NavLink></li>
             <li><NavLink to={"/dashboard/purchaseCoin"}>Purchase Coin</NavLink></li>
@@ -43,6 +43,9 @@ const DashBoardNavigation = () => {
                     <ul className="menu bg-base-100 text-base-content min-h-full w-60 p-4 space-y-2">
                         {
                             buyerNavOptions
+                        }
+                        {
+                            workerNavOptions
                         }
                     </ul>
                 </div>

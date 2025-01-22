@@ -9,6 +9,12 @@ import AddNewTask from "../Pages/BuyerPages/AddNewTask";
 import PurchaseCoin from "../Pages/BuyerPages/PurchaseCoin";
 import MyTask from "../Pages/BuyerPages/MyTask";
 import Payment from "../Pages/BuyerPages/Payment";
+import PaymentHistory from "../Pages/BuyerPages/PaymentHistory";
+import BuyerHome from "../Pages/BuyerPages/BuyerHome";
+import WorkerHome from "../Pages/WorkerPages/WorkerHome";
+import TaskList from "../Pages/WorkerPages/TaskList";
+import MySubmissions from "../Pages/WorkerPages/MySubmissions";
+import Withdrawals from "../Pages/WorkerPages/Withdrawals";
 
 
 export const router = createBrowserRouter([
@@ -38,6 +44,11 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashBoardLayout></DashBoardLayout>,
     children: [
+      // Buyer Dashboard Routes
+      {
+        path: "/dashboard/buyerHome",
+        element: <BuyerHome></BuyerHome>
+      },
       {
         path: "/dashboard/addNewTask",
         element: <AddNewTask></AddNewTask>,
@@ -52,8 +63,33 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/payment",
-        element: <Payment></Payment>
+        element: <Payment></Payment>,
       },
+      {
+        path: "/dashboard/paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      
+      // Worker DashBoard Routes
+      {
+        path: "/dashboard/workerHome",
+        element: <WorkerHome></WorkerHome>,
+      },
+      {
+        path: "/dashboard/taskList",
+        element: <TaskList></TaskList>
+      },
+      {
+        path: "/dashboard/mySubmissions",
+        element: <MySubmissions></MySubmissions>
+      },
+      {
+        path: "/dashboard/withdrawals",
+        element: <Withdrawals></Withdrawals>
+      },
+      
+
+
     ]
   },
 ]);
