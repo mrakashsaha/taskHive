@@ -83,7 +83,8 @@ const MyTask = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/deleteTask?id=${id}`)
                     .then(res => {
-                        if (res?.data?.modifiedCount) {
+                        console.log (res.data);
+                        if (res?.data?.matchedCount) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Task deleted and Payable Coins has been Refunded",
