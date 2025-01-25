@@ -3,6 +3,7 @@ import useAxiosSecure from '../../hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { BiSolidCoinStack } from 'react-icons/bi';
 import Swal from 'sweetalert2';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -14,6 +15,45 @@ const ManageUsers = () => {
         }
     })
     console.log(allUsers)
+
+
+    const handleDeleteUser = (id) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/deleteUserByAdmin?id=${id}`)
+                    .then(res => {
+                        console.log (res.data);
+                        if (res?.data?.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "The user deleted sucessfully",
+                                icon: "success"
+                            });
+
+                            refetch();
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: "Opps..",
+                            text: "Somthing went Wrong!",
+                            icon: "error"
+                        });
+                        console.log(error);
+                    })
+            }
+        });
+
+    }
 
     const handleChangeUserRole = (e, id) => {
         const newRoleDoc = { userId: id, newRole: e.target.value };
@@ -37,17 +77,17 @@ const ManageUsers = () => {
                                 icon: "success"
                             });
 
-                            
+
 
                         }
                     })
-                    .catch (error => {
-                        console.log (error)
+                    .catch(error => {
+                        console.log(error)
                         Swal.fire({
                             icon: "error",
                             title: "Oops...",
                             text: "Something went wrong!",
-                          });
+                        });
                     })
             }
         });
@@ -55,6 +95,9 @@ const ManageUsers = () => {
     return (
         <div>
             {/* Manage User Section */}
+            <div className='py-4 px-2'>
+                <h2 className='text-2xl'>Manage Users</h2>
+            </div>
             <div className="card-body bg-base-100 rounded-md">
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -65,7 +108,8 @@ const ManageUsers = () => {
                                 <th>User Profile</th>
                                 <th>Email</th>
                                 <th className='text-right'>Coin Balance</th>
-                                <th>Action</th>
+                                <th>Change Role</th>
+                                <th>Delete User</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,6 +141,9 @@ const ManageUsers = () => {
                                             <option value="buyer">Buyer</option>
                                             <option value="worker">Worker</option>
                                         </select>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleDeleteUser(user?._id)} className="btn btn-circle btn-sm"> <RiDeleteBin6Line className='text-xl'></RiDeleteBin6Line> </button>
                                     </td>
 
                                 </tr>)
