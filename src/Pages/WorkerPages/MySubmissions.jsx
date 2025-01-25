@@ -7,6 +7,7 @@ import moment from 'moment';
 import Pending from '../../components/Pending';
 import Approved from '../../components/Approved';
 
+
 const MySubmissions = () => {
     const { userInfo, isPending } = useUserInfo();
     const axiosSecure = useAxiosSecure();
@@ -38,7 +39,7 @@ const MySubmissions = () => {
                                 <th>Submission ID</th>
                                 <th>Status</th>
                                 <th>Submission Date</th>
-                                <th className='text-right'>Receivable Coin</th>
+                                <th className='text-right'>Recivable</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,17 +47,17 @@ const MySubmissions = () => {
                                 mySubmissionData.map((submission, idx) => <tr key={submission._id}>
                                     <td>{idx + 1}</td>
                                     <td>
-                                        <div class="flex items-center gap-3">
-                                            <div class="avatar">
-                                                <div class="mask mask-squircle h-12 w-12">
+                                        <div className="flex items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle h-10 w-10">
                                                     <img
                                                         src={submission?.buyerPhoto}
                                                         alt={submission?.buyerName} />
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class="font-medium">{submission?.buyerName}</div>
-                                                <div className='flex items-center text-xs opacity-50 gap-x-1'><IoMail></IoMail> <p class="">  {submission.buyerEmail}</p></div>
+                                                <div className="font-medium">{submission?.buyerName}</div>
+                                                <div className='flex items-center text-xs opacity-50 gap-x-1'><IoMail></IoMail> <p className="">  {userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p></div>
                                             </div>
                                         </div>
                                     </td>
@@ -71,7 +72,7 @@ const MySubmissions = () => {
                                     <td>
                                         {submission?.status === "approved" ? <Approved></Approved> : <Pending></Pending>}
                                     </td>
-                                    <td className='text-sm'>
+                                    <td className='text-xs'>
                                         {moment(submission?.currentDate).local().format("lll")}
                                     </td>
                                     <td className='text-right'>

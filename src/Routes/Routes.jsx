@@ -16,6 +16,10 @@ import TaskList from "../Pages/WorkerPages/TaskList";
 import MySubmissions from "../Pages/WorkerPages/MySubmissions";
 import Withdrawals from "../Pages/WorkerPages/Withdrawals";
 import TaskDetails from "../Pages/WorkerPages/TaskDetails";
+import AdminHome from "../Pages/AdminPages/AdminHome";
+import ManageTask from "../Pages/AdminPages/ManageTask";
+import ManageUsers from "../Pages/AdminPages/ManageUsers";
+
 
 
 export const router = createBrowserRouter([
@@ -91,6 +95,21 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/withdrawals",
         element: <Withdrawals></Withdrawals>
+      },
+      // Admin Routes
+      {
+        path: "/dashboard/adminHome",
+        element: <AdminHome></AdminHome>,
+      },
+      
+      {
+        path: "/dashboard/manageTask",
+        element: <ManageTask></ManageTask>
+      },
+      
+      {
+        path: "/dashboard/manageUsers",
+        element: <ManageUsers></ManageUsers>,
       },
       
 

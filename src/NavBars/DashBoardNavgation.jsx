@@ -24,9 +24,9 @@ const DashBoardNavigation = () => {
         </>
     const adminNavOptions =
         <>
-            <li><NavLink to={"/dashboard"}>Home</NavLink></li>
-            <li><NavLink to={"/dashboard"}>Manage Users</NavLink></li>
-            <li><NavLink to={"/dashboard"}>Manage Task</NavLink></li>
+            <li><NavLink to={"/dashboard/adminHome"}>Home</NavLink></li>
+            <li><NavLink to={"/dashboard/manageUsers"}>Manage Users</NavLink></li>
+            <li><NavLink to={"/dashboard/manageTask"}>Manage Task</NavLink></li>
         </>
     return (
         <div>
@@ -46,6 +46,9 @@ const DashBoardNavigation = () => {
                         }
                         {
                             workerNavOptions
+                        }
+                        {
+                            adminNavOptions
                         }
                     </ul>
                 </div>

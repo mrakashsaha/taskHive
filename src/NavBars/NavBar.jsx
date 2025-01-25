@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import useUserInfo from '../hook/useUserInfo';
 
 const NavBar = () => {
+    const {userInfo} = useUserInfo();
+    let dashboardpath;
     const { signOutFromAccount, setUser, user, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignOut = () => {
@@ -16,6 +19,17 @@ const NavBar = () => {
             });
     }
 
+    if (userInfo?.role==="admin") {
+        dashboardpath = "/dashboard/adminHome"
+    }
+    else if (userInfo?.role==="buyer") {
+        dashboardpath = "/dashboard/buyerHome"
+    }
+    else {
+        dashboardpath = "/dashboard/workerHome"
+    }
+    
+
     const noUserMenus =
         <>
             <li><Link to={"/login"}>Login</Link></li>
@@ -24,7 +38,7 @@ const NavBar = () => {
 
     const userMenus =
         <>
-            <li><Link to={"/dashboard"}>Dashboard</Link></li>
+            <li><Link to={dashboardpath}>Dashboard</Link></li>
             <li><Link to={""}>Available Coin</Link></li>
             <li><Link to={"/profile"}>User Profile</Link></li>
             <li><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
