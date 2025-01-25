@@ -81,7 +81,7 @@ const AdminHome = () => {
                     <p>Welcome Back! </p>
                     <h2 className='text-2xl'>{userInfo?.displayName}</h2>
                 </div>
-                <div className='grid grid-cols-4 gap-2 mb-6'>
+                <div className='grid grid-cols-2 xl:grid-cols-4 gap-2 mb-6'>
                     <div className='bg-base-100 p-6 border rounded-md'>
                         <div className='flex justify-between'>
                             <div className='space-y-4'>
