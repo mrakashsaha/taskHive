@@ -65,7 +65,7 @@ const ManageTask = () => {
         <div className=''>
             <div className='w-11/12 mx-auto'>
                 <div className='py-4 px-2'>
-                    <h2 className='text-2xl'>My Tasks</h2>
+                    <h2 className='text-2xl'>Manage Tasks</h2>
                 </div>
                 <div className="card-body bg-base-100 rounded-md">
                     <div className="overflow-x-auto">

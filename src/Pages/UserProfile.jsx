@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const UserProfile = () => {
     const { user, loading } = useContext(AuthContext);
     if (loading) {
-        return <p>Loading../</p>
+        return <p>Loading..</p>
     }
     return (
         <div className='mx-auto max-w-md'>

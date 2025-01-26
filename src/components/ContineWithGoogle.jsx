@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
-import { FaGoogle } from 'react-icons/fa';
 import useAxiosPublic from '../hook/useAxiosPublic';
 import { useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 
 const ContineWithGoogle = () => {
 
@@ -61,7 +61,7 @@ const ContineWithGoogle = () => {
     }
     return (
         <div className='py-4'>
-            <button onClick={handleGoogleLogin} className='btn w-full'><FaGoogle></FaGoogle>Continue With Google</button>
+            <button onClick={handleGoogleLogin} className='btn w-full'><FcGoogle className='text-xl'></FcGoogle>Continue With Google</button>
         </div>
     );
 };

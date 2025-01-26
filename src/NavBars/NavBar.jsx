@@ -34,23 +34,23 @@ const NavBar = () => {
 
     const noUserMenus =
         <>
-            <li><Link to={"/login"}>Login</Link></li>
-            <li><Link to={"/register"}>Register</Link></li>
+            <li className='text-lg'><Link to={"/login"}>Login</Link></li>
+            <li className='text-lg'><Link to={"/register"}>Register</Link></li>
         </>
 
     const userMenus =
         <>
-            <li><Link to={dashboardpath}>Dashboard</Link></li>
-            <li> <Link to={dashboardpath}>
+            <li className='text-lg'><Link to={dashboardpath}>Dashboard</Link></li>
+            <li className='text-lg'> <Link to={dashboardpath}>
                 <div className='flex items-center gap-1'>
                     <p>Balance: <span className='font-semibold'>{!isPending && userInfo?.coin}</span></p>
                     <IoServerOutline></IoServerOutline>
                 </div>
             </Link> </li>
-            <li> <Link to={"/profile"}>
+            <li className='text-lg'> <Link to={"/profile"}>
                 <div className='flex items-center gap-2'>
-                    <div className="avatar">
-                        <div className="w-6 rounded-full">
+                    <div className="avatar hidden lg:block">
+                        <div className="w-8 rounded-full">
                             <img
                                 className=''
                                 alt="ProfileImage"
@@ -58,15 +58,15 @@ const NavBar = () => {
                         </div>
                     </div>
                     <div>
-                        <h2>My Profile</h2>
+                        <h2 className=''>My Profile</h2>
                     </div>
                 </div>
             </Link> </li>
-            <li><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
+            <li className='text-lg'><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
         </>
 
     return (
-        <div className='bg-base-100'>
+        <div className='bg-base-100 sticky w-full z-20'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -95,7 +95,7 @@ const NavBar = () => {
                             }
                         </ul>
                     </div>
-                    <Link to={"/"} className="btn btn-ghost text-xl">TaskHive</Link>
+                    <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
