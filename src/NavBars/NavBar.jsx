@@ -3,9 +3,11 @@ import { FaGithub, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import useUserInfo from '../hook/useUserInfo';
+import { BiSolidCoinStack } from 'react-icons/bi';
+import { IoServerOutline } from 'react-icons/io5';
 
 const NavBar = () => {
-    const {userInfo} = useUserInfo();
+    const { userInfo, isPending } = useUserInfo();
     let dashboardpath;
     const { signOutFromAccount, setUser, user, loading } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,16 +21,16 @@ const NavBar = () => {
             });
     }
 
-    if (userInfo?.role==="admin") {
+    if (userInfo?.role === "admin") {
         dashboardpath = "/dashboard/adminHome"
     }
-    else if (userInfo?.role==="buyer") {
+    else if (userInfo?.role === "buyer") {
         dashboardpath = "/dashboard/buyerHome"
     }
     else {
         dashboardpath = "/dashboard/workerHome"
     }
-    
+
 
     const noUserMenus =
         <>
@@ -39,8 +41,27 @@ const NavBar = () => {
     const userMenus =
         <>
             <li><Link to={dashboardpath}>Dashboard</Link></li>
-            <li><Link to={""}>Available Coin</Link></li>
-            <li><Link to={"/profile"}>User Profile</Link></li>
+            <li> <Link to={dashboardpath}>
+                <div className='flex items-center gap-1'>
+                    <p>Balance: <span className='font-semibold'>{!isPending && userInfo?.coin}</span></p>
+                    <IoServerOutline></IoServerOutline>
+                </div>
+            </Link> </li>
+            <li> <Link to={"/profile"}>
+                <div className='flex items-center gap-2'>
+                    <div className="avatar">
+                        <div className="w-6 rounded-full">
+                            <img
+                                className=''
+                                alt="ProfileImage"
+                                src={!isPending && userInfo?.photoURL} />
+                        </div>
+                    </div>
+                    <div>
+                        <h2>My Profile</h2>
+                    </div>
+                </div>
+            </Link> </li>
             <li><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
         </>
 
@@ -67,10 +88,10 @@ const NavBar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {
-                               !loading && !user && noUserMenus
+                                !loading && !user && noUserMenus
                             }
                             {
-                               !loading && user && userMenus
+                                !loading && user && userMenus
                             }
                         </ul>
                     </div>
@@ -79,10 +100,10 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {
-                           !loading && !user && noUserMenus
+                            !loading && !user && noUserMenus
                         }
                         {
-                           !loading && user && userMenus
+                            !loading && user && userMenus
                         }
                     </ul>
                 </div>

@@ -33,7 +33,7 @@ const AddNewTask = () => {
                 text: `You need atleast ${(data?.payableAmount * data?.requiredWorkers) - userInfo?.coin} coins to post.`,
                 footer: 'We will redirect you to Purschase Coin'
             });
-            // navigate("/dashboard/purchaseCoin")
+            navigate("/dashboard/purchaseCoin")
             return;
         }
 

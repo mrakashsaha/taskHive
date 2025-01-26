@@ -3,7 +3,6 @@ import { BiSolidCoinStack } from 'react-icons/bi';
 import { MdOutlineNotificationsActive } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import useUserInfo from '../hook/useUserInfo';
-import Loading from '../components/Loading';
 
 const DashBoardNavBar = () => {
     const {userInfo, isPending} = useUserInfo();
@@ -17,7 +16,7 @@ const DashBoardNavBar = () => {
                 <div className="flex-none gap-2">
                     <div className="flex items-center gap-x-4">
                         <div>
-                            <h2 className='btn rounded-full flex items-center justify-center gap-2 text-xl'> <BiSolidCoinStack className='text-2xl'></BiSolidCoinStack>{userInfo?.coin}</h2>
+                            <h2 className='btn rounded-full flex items-center justify-center gap-2 text-xl'> <BiSolidCoinStack className='text-2xl'></BiSolidCoinStack>{!isPending && userInfo?.coin}</h2>
                         </div>
                     </div>
                     <div className="dropdown dropdown-end">

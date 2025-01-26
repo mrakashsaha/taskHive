@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import BasicLayout from "../Layout/BasicLayout";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import Registration from "../Pages/Registration";
@@ -19,6 +19,9 @@ import TaskDetails from "../Pages/WorkerPages/TaskDetails";
 import AdminHome from "../Pages/AdminPages/AdminHome";
 import ManageTask from "../Pages/AdminPages/ManageTask";
 import ManageUsers from "../Pages/AdminPages/ManageUsers";
+import AdminRoute from "./AdminRoute";
+import BuyerRoute from "./BuyerRoute";
+import WorkerRoute from "./WorkerRoute";
 
 
 
@@ -49,69 +52,75 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashBoardLayout></DashBoardLayout>,
     children: [
+      // Only Dashboard Path should naviagte to Dashboard
+      {
+        path: "/dashboard",
+        element: <Navigate to={"/"}></Navigate>
+      },
+
       // Buyer Dashboard Routes
       {
         path: "/dashboard/buyerHome",
-        element: <BuyerHome></BuyerHome>
+        element: <BuyerRoute><BuyerHome></BuyerHome></BuyerRoute>
       },
       {
         path: "/dashboard/addNewTask",
-        element: <AddNewTask></AddNewTask>,
+        element: <BuyerRoute> <AddNewTask></AddNewTask> </BuyerRoute>
       },
       {
         path: "/dashboard/purchaseCoin",
-        element: <PurchaseCoin></PurchaseCoin>,
+        element: <BuyerRoute> <PurchaseCoin></PurchaseCoin> </BuyerRoute>
       },
       {
         path: "/dashboard/myTask",
-        element: <MyTask></MyTask>
+        element: <BuyerRoute> <MyTask></MyTask> </BuyerRoute>
       },
       {
         path: "/dashboard/payment",
-        element: <Payment></Payment>,
+        element: <BuyerRoute> <Payment></Payment> </BuyerRoute>
       },
       {
         path: "/dashboard/paymentHistory",
-        element: <PaymentHistory></PaymentHistory>,
+        element: <BuyerRoute> <PaymentHistory></PaymentHistory> </BuyerRoute>
       },
-      
+
       // Worker DashBoard Routes
       {
         path: "/dashboard/workerHome",
-        element: <WorkerHome></WorkerHome>,
+        element: <WorkerRoute> <WorkerHome></WorkerHome> </WorkerRoute>,
       },
       {
         path: "/dashboard/taskList",
-        element: <TaskList></TaskList>
+        element: <WorkerRoute> <TaskList></TaskList> </WorkerRoute>
       },
       {
         path: "/dashboard/taskDetails/:id",
-        element: <TaskDetails></TaskDetails>
+        element: <WorkerRoute> <TaskDetails></TaskDetails> </WorkerRoute>
       },
       {
         path: "/dashboard/mySubmissions",
-        element: <MySubmissions></MySubmissions>
+        element: <WorkerRoute> <MySubmissions></MySubmissions> </WorkerRoute>
       },
       {
         path: "/dashboard/withdrawals",
-        element: <Withdrawals></Withdrawals>
+        element: <WorkerRoute> <Withdrawals></Withdrawals> </WorkerRoute>
       },
       // Admin Routes
       {
         path: "/dashboard/adminHome",
-        element: <AdminHome></AdminHome>,
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
       },
-      
+
       {
         path: "/dashboard/manageTask",
-        element: <ManageTask></ManageTask>
+        element: <AdminRoute><ManageTask></ManageTask></AdminRoute>,
       },
-      
+
       {
         path: "/dashboard/manageUsers",
-        element: <ManageUsers></ManageUsers>,
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
       },
-      
+
 
 
     ]

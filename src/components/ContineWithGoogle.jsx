@@ -6,9 +6,12 @@ import useAxiosPublic from '../hook/useAxiosPublic';
 import { useNavigate } from 'react-router-dom';
 
 const ContineWithGoogle = () => {
+
     const { contineWithGoogle, setLoading } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
+    
+    
     const handleGoogleLogin = () => {
         contineWithGoogle()
             .then((result) => {
