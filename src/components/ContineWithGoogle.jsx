@@ -13,29 +13,32 @@ const ContineWithGoogle = () => {
         contineWithGoogle()
             .then((result) => {
                 const user = result.user;
+                const isSignup = parseInt(user?.metadata?.createdAt) === parseInt(user?.metadata?.lastLoginAt);
 
                 if (user) {
-                    const userInfo = {
-                        displayName: user?.displayName,
-                        email: user?.email,
-                        photoURL: user?.photoURL,
-                        role: "worker",
-                    }
-
-                    axiosPublic.put("/users", userInfo)
-                    .then (res=> {
-                        if (res?.data?.upsertedId) {
-                            Swal.fire({
-                                icon: "success",
-                                title: "Congratulations!",
-                                text: "You have recived 10 Coins for joining as Worker.",
-                            });
+                    if (isSignup) {
+                        const userInfo = {
+                            displayName: user?.displayName,
+                            email: user?.email,
+                            photoURL: user?.photoURL,
+                            role: "worker",
                         }
-                    })
-                    .catch(error=> {
-                        console.log (error);
-                        setLoading(false);
-                    })
+
+                        axiosPublic.put("/users", userInfo)
+                            .then(res => {
+                                if (res?.data?.upsertedId) {
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: "Congratulations!",
+                                        text: "You have recived 10 Coins for joining as Worker.",
+                                    });
+                                }
+                            })
+                            .catch(error => {
+                                console.log(error);
+                                setLoading(false);
+                            })
+                    }
 
 
                     navigate("/")

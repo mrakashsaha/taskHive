@@ -135,7 +135,7 @@ const AdminHome = () => {
                             <div className='space-y-4'>
                                 <h6 className='uppercase text-xs'>Total Payments</h6>
                                 <div className='flex items-center gap-x-2'>
-                                    <h2 className='text-3xl font-medium'> {adminStats?.totalPayment}</h2>
+                                    <h2 className='text-3xl font-medium'>${adminStats?.totalPayment}</h2>
                                 </div>
                             </div>
                             <div>

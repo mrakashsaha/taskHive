@@ -4,9 +4,11 @@ import { useQuery } from '@tanstack/react-query';
 import { BiSolidCoinStack } from 'react-icons/bi';
 import Swal from 'sweetalert2';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import useUserInfo from '../../hook/useUserInfo';
 
 const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
+    const {refetch:refetchUserInfo} = useUserInfo();
     const { data: allUsers = [], refetch } = useQuery({
         queryKey: ["allusers"],
         queryFn: async () => {
@@ -71,6 +73,7 @@ const ManageUsers = () => {
                     .then(res => {
                         if (res?.data?.modifiedCount) {
                             refetch();
+                            refetchUserInfo();
                             Swal.fire({
                                 title: "Success!",
                                 text: `The user is now ${newRoleDoc.newRole}.`,
