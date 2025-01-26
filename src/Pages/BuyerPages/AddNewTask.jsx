@@ -24,9 +24,7 @@ const AddNewTask = () => {
 
     const onSubmit = async (data) => {
 
-        console.log((userInfo?.coin > (data?.payableAmount * data?.requiredWorkers)));
-
-        if (userInfo?.coin < (data?.payableAmount * data?.requiredWorkers)) {
+         if (userInfo?.coin < (data?.payableAmount * data?.requiredWorkers)) {
             Swal.fire({
                 icon: "error",
                 title: "Not Enough Coin!",
@@ -66,8 +64,6 @@ const AddNewTask = () => {
             postedBy: userInfo?.email,
 
         }
-
-        console.log(taskDoc);
 
         axiosSecure.post("/tasks", taskDoc)
             .then(res => {

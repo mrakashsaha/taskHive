@@ -35,7 +35,6 @@ const AdminHome = () => {
 
         const handleWithdraw = (id, coinAmount, workerEmail) => {
     
-            console.log (id)
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -48,7 +47,6 @@ const AdminHome = () => {
                 if (result.isConfirmed) {
                     axiosSecure.patch(`/approveWithdraw`, {id, coinAmount, workerEmail})
                         .then(res => {
-                            console.log (res.data);
                             if (res?.data?.modifiedCount) {
                                 Swal.fire({
                                     title: "Sent!",

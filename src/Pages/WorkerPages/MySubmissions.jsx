@@ -21,7 +21,6 @@ const MySubmissions = () => {
     })
 
 
-    console.log(mySubmissionData);
     return (
         <div className='w-11/12 mx-auto'>
             <div className='py-4 px-2'>

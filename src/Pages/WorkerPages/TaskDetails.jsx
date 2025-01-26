@@ -24,13 +24,10 @@ const TaskDetails = () => {
         }
     })
 
-    console.log(taskDetails)
-
     const handleSubmitWork = (e) => {
         e.preventDefault();
 
         const submissionDetails = e.target.submissionDetails.value;
-        console.log(submissionDetails);
 
 
         const submissionDetailsDoc = {
@@ -48,7 +45,6 @@ const TaskDetails = () => {
             status: "pending",
         }
 
-        console.log (submissionDetailsDoc);
 
         axiosSecure.post("/submission", submissionDetailsDoc)
         .then (res=> {

@@ -16,7 +16,6 @@ const Registration = () => {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        console.log(data);
         createAccountWithEmail(data.email, data.password)
             .then((userCredential) => {
                 const user = userCredential.user;

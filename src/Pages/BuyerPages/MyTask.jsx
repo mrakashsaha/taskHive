@@ -37,8 +37,6 @@ const MyTask = () => {
             _id, taskTitle, taskDetails, submissionInfo
         }
 
-        console.log(taskUpdateDoc);
-
         axiosSecure.patch("/updateTask", taskUpdateDoc)
             .then(res => {
                 if (res.data.modifiedCount) {
@@ -83,7 +81,6 @@ const MyTask = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/deleteTask?id=${id}`)
                     .then(res => {
-                        console.log (res.data);
                         if (res?.data?.matchedCount) {
                             Swal.fire({
                                 title: "Deleted!",

@@ -16,7 +16,7 @@ const DashBoardNavBar = () => {
                 <div className="flex-none gap-2">
                     <div className="flex items-center gap-x-4">
                         <div>
-                            <h2 className='btn rounded-full flex items-center justify-center gap-2 text-xl'> <BiSolidCoinStack className='text-2xl'></BiSolidCoinStack>{!isPending && userInfo?.coin}</h2>
+                            <h2 className='btn rounded-full flex items-center justify-center gap-2 text-xl'> <BiSolidCoinStack className='text-2xl'></BiSolidCoinStack>{userInfo?.coin}</h2>
                         </div>
                     </div>
                     <div className="dropdown dropdown-end">
@@ -25,12 +25,12 @@ const DashBoardNavBar = () => {
                                 <div className="w-16 rounded-full">
                                     <img
                                         alt="ProfileImage"
-                                        src={!isPending && userInfo?.photoURL} />
+                                        src={ userInfo?.photoURL} />
                                 </div>
                             </div>
                             <div className='hidden sm:block'>
-                                <h2>{!isPending && userInfo?.displayName}</h2>
-                                <p className=''>Role: {!isPending && userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p>
+                                <h2>{ userInfo?.displayName}</h2>
+                                <p className=''>Role: {userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p>
                             </div>
                         </div>
                     </div>

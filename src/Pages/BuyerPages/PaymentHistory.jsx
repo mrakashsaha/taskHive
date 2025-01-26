@@ -17,8 +17,6 @@ const PaymentHistory = () => {
         }
     })
 
-    console.log(paymentHistoryData)
-
     return (
         <div>
             <div className='max-w-4xl mx-auto min-h-screen'>

@@ -17,7 +17,6 @@ const TaskList = () => {
         }
     })
 
-    console.log(taskLists);
     return (
         <div>
             <div className='max-w-6xl mx-auto'>

@@ -33,7 +33,7 @@ const BuyerHome = () => {
         }
     })
 
-    console.log(tasksForReview);
+
     const handleViewSubmission = (submittedText) => {
         setSubmittedInfo("")
         document.getElementById('my_modal_5').showModal();
@@ -42,7 +42,6 @@ const BuyerHome = () => {
 
     const handleApproveSubmission = (id, workerEmail, payableCoin) => {
 
-        console.log (id, workerEmail, payableCoin);
 
         const payableDoc = {workerEmail, payableCoin}
 

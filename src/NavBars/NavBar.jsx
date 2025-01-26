@@ -8,19 +8,20 @@ import { IoServerOutline } from 'react-icons/io5';
 
 const NavBar = () => {
     const { userInfo, isPending } = useUserInfo();
-    let dashboardpath;
     const { signOutFromAccount, setUser, user, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignOut = () => {
         signOutFromAccount()
-            .then(() => {
-                setUser(null);
-                navigate("/login")
-            }).catch((error) => {
-                console.log("signout failed");
-            });
+        .then(() => {
+            setUser(null);
+            navigate("/login")
+        }).catch((error) => {
+            console.log("signout failed");
+        });
     }
-
+    
+    let dashboardpath;
+    
     if (userInfo?.role === "admin") {
         dashboardpath = "/dashboard/adminHome"
     }
@@ -87,12 +88,7 @@ const NavBar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            {
-                                !loading && !user && noUserMenus
-                            }
-                            {
-                                !loading && user && userMenus
-                            }
+
                         </ul>
                     </div>
                     <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>

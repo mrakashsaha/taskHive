@@ -16,7 +16,7 @@ const ManageUsers = () => {
             return res.data;
         }
     })
-    console.log(allUsers)
+
 
 
     const handleDeleteUser = (id) => {
@@ -33,7 +33,7 @@ const ManageUsers = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/deleteUserByAdmin?id=${id}`)
                     .then(res => {
-                        console.log (res.data);
+
                         if (res?.data?.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",

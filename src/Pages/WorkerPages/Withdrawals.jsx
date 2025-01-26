@@ -14,7 +14,6 @@ const Withdrawals = () => {
     const axiosSecure = useAxiosSecure();
     const watchCoinAmount = parseInt(watch("coinAmount"));
     const onSubmit = (data) => {
-        console.log(data)
         const withdrawDoc = {
             coinAmount: parseInt(data?.coinAmount),
             paymentMethod: data?.paymentMethod,
@@ -38,7 +37,6 @@ const Withdrawals = () => {
                 }
             })
 
-        console.log(withdrawDoc)
     }
 
     return (
