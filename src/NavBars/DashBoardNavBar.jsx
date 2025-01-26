@@ -7,14 +7,7 @@ import Loading from '../components/Loading';
 
 const DashBoardNavBar = () => {
     const {userInfo, isPending} = useUserInfo();
-
-    if (isPending) {
-        return;
-
-    }
-
-    console.log (userInfo)
-    
+  
     return (
         <div className='bg-base-100 shadow-md'>
             <div className="navbar p-4">
@@ -33,12 +26,12 @@ const DashBoardNavBar = () => {
                                 <div className="w-16 rounded-full">
                                     <img
                                         alt="ProfileImage"
-                                        src={userInfo?.photoURL} />
+                                        src={!isPending && userInfo?.photoURL} />
                                 </div>
                             </div>
                             <div className='hidden sm:block'>
-                                <h2>{userInfo?.displayName}</h2>
-                                <p className=''>Role: {userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p>
+                                <h2>{!isPending && userInfo?.displayName}</h2>
+                                <p className=''>Role: {!isPending && userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p>
                             </div>
                         </div>
                     </div>

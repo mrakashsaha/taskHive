@@ -1,12 +1,17 @@
-import React from 'react';
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
-import { LuLayoutDashboard } from 'react-icons/lu';
+import React, { useContext } from 'react';
 import { TbLayoutSidebarLeftCollapseFilled } from 'react-icons/tb';
-import { Link, NavLink } from 'react-router-dom';
+import {NavLink, useNavigate } from 'react-router-dom';
 import useMyTask from '../hook/useMyTask';
+import useUserInfo from '../hook/useUserInfo';
+import { FaSignOutAlt } from 'react-icons/fa';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const DashBoardNavigation = () => {
     const { myTask } = useMyTask();
+    const { userInfo, isPending } = useUserInfo();
+    const { signOutFromAccount, setUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const workerNavOptions =
         <>
             <li><NavLink to={"/dashboard/workerHome"}>Home</NavLink></li>
@@ -28,6 +33,16 @@ const DashBoardNavigation = () => {
             <li><NavLink to={"/dashboard/manageUsers"}>Manage Users</NavLink></li>
             <li><NavLink to={"/dashboard/manageTask"}>Manage Task</NavLink></li>
         </>
+
+    const handleSignOut = () => {
+        signOutFromAccount()
+            .then(() => {
+                setUser(null);
+                navigate("/login")
+            }).catch((error) => {
+                console.log("signout failed");
+            });
+    }
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -42,14 +57,9 @@ const DashBoardNavigation = () => {
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-100 text-base-content min-h-full w-60 p-4 space-y-2">
                         {
-                            buyerNavOptions
+                            !isPending && userInfo?.role === "worker" ? workerNavOptions : userInfo?.role === "buyer" ? buyerNavOptions : userInfo?.role === "admin" ? adminNavOptions : <div className='flex mt-20 items-end justify-center'><span className="loading loading-bars loading-lg"></span></div>
                         }
-                        {
-                            workerNavOptions
-                        }
-                        {
-                            adminNavOptions
-                        }
+                        <li><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
                     </ul>
                 </div>
             </div>
