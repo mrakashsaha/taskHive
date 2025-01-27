@@ -1,58 +1,69 @@
-import React from "react";
-import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
-import { HiOutlineLocationMarker, HiOutlineGlobeAlt } from "react-icons/hi";
-import { BsCurrencyDollar } from "react-icons/bs";
+import React from 'react';
+import { BsGlobe } from 'react-icons/bs';
+import { HiOutlineCurrencyDollar } from 'react-icons/hi';
+import { IoLocationOutline, IoServerOutline } from 'react-icons/io5';
 
-export default function ProfileCard() {
+const ProfileCard = ({worker}) => {
+  console.log(worker);
   return (
-    <div className="card bg-white shadow-md rounded-lg p-6 relative">
-
-      {/* Profile Picture */}
-      <div className="flex justify-center">
-        <img
-          src="https://via.placeholder.com/80" // Replace with your image URL
-          alt="Profile"
-          className="rounded-full w-20 h-20 border-2 border-gray-300"
-        />
-      </div>
-
-      {/* Name and Role */}
-      <div className="text-center mt-4">
-        <h2 className="text-xl font-semibold text-gray-800">Marcus Rosser</h2>
-        <p className="text-sm text-gray-500">Product Manager</p>
-      </div>
-
-      {/* Pricing and Details */}
-      <div className="mt-4 text-sm text-gray-600">
-        <div className="flex items-center justify-center gap-2">
-          <BsCurrencyDollar className="text-gray-800" />
-          <span className="font-medium text-gray-800">$560</span>
-          <span>/month</span>
+    <div className='card-body border-2 min-w-72 rounded-md font-medium'>
+      <div>
+        <div className='flex flex-col justify-center items-center space-y-4 pb-4'>
+          <div className="avatar">
+            <div className="w-24 rounded-full">
+              <img src={worker?.photoURL} />
+            </div>
+          </div>
+          <div>
+            <h2 className='text-xl text-center'>{worker?.displayName}</h2>
+            <h5 className='text-center text-lg'>TaskHive Worker</h5>
+          </div>
+          <div className='space-y-2'>
+            <div className='flex gap-x-2 items-center'>
+              <div> <IoServerOutline className='text-xl' ></IoServerOutline> </div>
+              <div className='text-lg'>{worker?.coin} Coins</div>
+            </div>
+            <div className='flex gap-x-2 items-center'>
+              <div> <IoLocationOutline className='text-xl'></IoLocationOutline> </div>
+              <div className='text-lg'>Dhaka, Bangladesh</div>
+            </div>
+            <div className='flex gap-x-2 items-center'>
+              <div> <BsGlobe className='text-xl'></BsGlobe> </div>
+              <div className='text-lg'>English / Bengali</div>
+            </div>
+          </div>
+        <div className='flex gap-2'>
+          <label className='text-lg'>
+            Ratting:
+          </label>
+          <div className="rating">
+            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star-2 bg-orange-400"
+              defaultChecked />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star-2 bg-orange-400"
+              defaultChecked />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star-2 bg-orange-400"
+              defaultChecked />
+            <input
+              type="radio"
+              name="rating-2"
+              className="mask mask-star-2 bg-orange-400"
+              defaultChecked />
+          </div>
         </div>
-        <div className="flex items-center justify-center gap-2 mt-2">
-          <HiOutlineLocationMarker className="text-gray-800" />
-          <span>Los Angeles</span>
         </div>
-        <div className="flex items-center justify-center gap-2 mt-2">
-          <HiOutlineGlobeAlt className="text-gray-800" />
-          <span>English</span>
-        </div>
-      </div>
-
-      {/* Tags */}
-      <div className="flex justify-center mt-4 gap-2">
-        <span className="badge badge-outline">Software</span>
-        <span className="badge badge-outline">Supporter</span>
-      </div>
-
-      {/* Rating and Services */}
-      <div className="flex justify-between items-center mt-6 text-sm text-gray-500">
-        <div className="flex items-center gap-1">
-          <AiFillStar className="text-yellow-500" />
-          <span className="font-medium">5.0 (1)</span>
-        </div>
-        <div className="text-gray-800">2 services</div>
       </div>
     </div>
   );
-}
+};
+
+export default ProfileCard;
