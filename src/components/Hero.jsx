@@ -45,7 +45,7 @@ const Hero = () => {
                                                 clipRule="evenodd" />
                                         </svg>
                                     </label>
-                                    <Link to={"/services"} className='btn btn-md bg-[#3cc7a6] hover:bg-[#0bb990] text-white border-none rounded-md px-7'>Search</Link>
+                                    <button className='btn btn-md bg-[#3cc7a6] hover:bg-[#0bb990] text-white border-none rounded-md px-7'>Search</button>
                                 </div>
 
                                 <div className='font-medium mt-10 text-white flex justify-between'>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaGithub, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
@@ -7,7 +7,7 @@ import { BiSolidCoinStack } from 'react-icons/bi';
 import { IoServerOutline } from 'react-icons/io5';
 
 const NavBar = () => {
-    const { userInfo, isPending } = useUserInfo();
+    const { userInfo, isPending, refetch } = useUserInfo();
     const { signOutFromAccount, setUser, user, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const handleSignOut = () => {
@@ -18,6 +18,16 @@ const NavBar = () => {
             }).catch((error) => {
                 console.log("signout failed");
             });
+    }
+
+    if (isPending) {
+        return (
+            <nav className='bg-base-100 navbar'>
+                <div className='container mx-auto lg:py-2'>
+                    <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>
+                </div>
+            </nav>
+        )
     }
 
     let dashboardpath;

@@ -7,6 +7,7 @@ import Lottie from 'lottie-react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../hook/useAxiosPublic';
+import useUserInfo from '../hook/useUserInfo';
 
 const Registration = () => {
     const { createAccountWithEmail, saveUserDetails } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Registration = () => {
     const [visiable, setVisiable] = useState(false);
     const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
+    const {refetch} = useUserInfo();
 
     const onSubmit = (data) => {
         createAccountWithEmail(data.email, data.password)
@@ -47,6 +49,8 @@ const Registration = () => {
                                                 text: "You have recived 10 Coins for joining as Worker.",
                                             });
                                         }
+
+                                        refetch();
 
                                     }
                                 })

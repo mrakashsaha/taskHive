@@ -22,6 +22,7 @@ import ManageUsers from "../Pages/AdminPages/ManageUsers";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
 import WorkerRoute from "./WorkerRoute";
+import ErrorPage from "../components/ErrorPage";
 
 
 
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <BasicLayout></BasicLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
