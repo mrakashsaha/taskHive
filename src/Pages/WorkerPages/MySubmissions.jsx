@@ -6,6 +6,7 @@ import { IoMail } from 'react-icons/io5';
 import moment from 'moment';
 import Pending from '../../components/Pending';
 import Approved from '../../components/Approved';
+import { RxAvatar } from 'react-icons/rx';
 
 
 const MySubmissions = () => {
@@ -56,7 +57,7 @@ const MySubmissions = () => {
                                             </div>
                                             <div>
                                                 <div className="font-medium">{submission?.buyerName}</div>
-                                                <div className='flex items-center text-xs opacity-50 gap-x-1'><IoMail></IoMail> <p className="">  {userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p></div>
+                                                <div className='flex items-center text-xs opacity-50 gap-x-1'> <RxAvatar className='text-base'></RxAvatar> <p className="">  Buyer</p></div>
                                             </div>
                                         </div>
                                     </td>

@@ -37,7 +37,7 @@ const TaskCard = ({ task }) => {
                             </div>
                         </div>
                         <div className='mb-6'>
-                            <h2 className='font-semibold line-clamp-2'>{task?.taskTitle}</h2>
+                            <h2 className='font-semibold line-clamp-1'>{task?.taskTitle}</h2>
                         </div>
                         <hr />
                         <div className="card-actions items-center justify-between mt-2">

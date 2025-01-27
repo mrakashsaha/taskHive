@@ -8,7 +8,7 @@ const StartAsWorker = () => {
 
                 <video
                     className="absolute top-0 left-0 h-full w-full object-cover"
-                    src={"https://raw.githubusercontent.com/mrakashsaha/videos/refs/heads/main/working.mp4"}
+                    src={"https://raw.githubusercontent.com/mrakashsaha/videos/refs/heads/main/1080p.mp4"}
                     autoPlay
                     loop
                     muted

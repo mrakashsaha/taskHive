@@ -6,6 +6,7 @@ import StartAsWorker from '../components/StartAsWorker';
 import BrandLogo from '../components/BrandLogo';
 import Testimonials from '../components/Testimonials';
 import Subscribe from '../components/Subscribe';
+import StableService from '../components/StableService';
 
 const Home = () => {
     return (
@@ -14,8 +15,9 @@ const Home = () => {
             <BrandLogo></BrandLogo>
             <TopWorkers></TopWorkers>
             <StartAsWorker></StartAsWorker>
-            <Testimonials></Testimonials>
+            <StableService></StableService>
             <Subscribe></Subscribe>
+            <Testimonials></Testimonials>
             <Footer></Footer>
         </div>
     );
