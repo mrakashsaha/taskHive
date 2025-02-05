@@ -13,7 +13,6 @@ const TopWorkers = () => {
         }
     })
 
-    console.log(bestWorkers);
     return (
         <div className='container mx-auto my-20 p-10 md:p-0'>
             <div className='space-y-2'>

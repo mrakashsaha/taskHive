@@ -4,7 +4,6 @@ import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 import { IoLocationOutline, IoServerOutline } from 'react-icons/io5';
 
 const ProfileCard = ({worker}) => {
-  console.log(worker);
   return (
     <div className='card-body border-2 min-w-72 rounded-md font-medium'>
       <div>
