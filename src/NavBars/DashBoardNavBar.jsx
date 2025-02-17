@@ -3,6 +3,7 @@ import { BiSolidCoinStack } from 'react-icons/bi';
 import { MdOutlineNotificationsActive } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import useUserInfo from '../hook/useUserInfo';
+import ThemeToggle from '../components/ThemeToggle';
 
 const DashBoardNavBar = () => {
     const {userInfo, isPending} = useUserInfo();
@@ -34,8 +35,8 @@ const DashBoardNavBar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='px-4 border-l-2'>
-                        <MdOutlineNotificationsActive className='text-3xl'></MdOutlineNotificationsActive>
+                    <div className='px-4 border-l-2 border-base-200'>
+                        <ThemeToggle></ThemeToggle>
                     </div>
                 </div>
             </div>

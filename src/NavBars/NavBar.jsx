@@ -5,6 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import useUserInfo from '../hook/useUserInfo';
 import { BiSolidCoinStack } from 'react-icons/bi';
 import { IoServerOutline } from 'react-icons/io5';
+import ThemeToggle from '../components/ThemeToggle';
 
 const NavBar = () => {
     const { userInfo, isPending, refetch } = useUserInfo();
@@ -23,8 +24,9 @@ const NavBar = () => {
     if (isPending) {
         return (
             <nav className='bg-base-100 navbar'>
-                <div className='container mx-auto lg:py-2'>
+                <div className='container mx-auto flex justify-between lg:py-2'>
                     <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>
+                    <span className="loading loading-bars loading-lg"></span>
                 </div>
             </nav>
         )
@@ -120,6 +122,7 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-end">
                     <a href="https://github.com/mrakashsaha" target="_blank" className="btn"> <FaGithub className='text-3xl'></FaGithub> Join as Developer</a>
+                    <ThemeToggle></ThemeToggle>
                 </div>
             </div>
         </div>

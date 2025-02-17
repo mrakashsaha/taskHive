@@ -12,7 +12,7 @@ const DashBoardLayout = () => {
             <div className=''>
                 <div className='fixed top-20 z-30'><DashBoardNavigation></DashBoardNavigation></div>
                 <div className='flex-grow shadow-md border-t-2 bg-base-200'>
-                    <div className='p-8 mt-20 lg:ml-60'>
+                    <div className='p-8 mt-20 lg:ml-60 min-h-dvh'>
                         <Outlet></Outlet>
                     </div>
                     <div className='mt-20 lg:ml-60'>

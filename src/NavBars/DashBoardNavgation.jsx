@@ -53,7 +53,7 @@ const DashBoardNavigation = () => {
                         <TbLayoutSidebarLeftCollapseFilled className='text-2xl'></TbLayoutSidebarLeftCollapseFilled>
                     </label>
                 </div>
-                <div className="drawer-side shadow-xl border-t-2">
+                <div className="drawer-side shadow-xl border-t-2 border-base-200">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-100 text-base-content min-h-full w-60 p-4 space-y-2">
                         {
