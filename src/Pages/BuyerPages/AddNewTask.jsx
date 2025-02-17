@@ -150,7 +150,7 @@ const AddNewTask = () => {
                             <label className="label">
                                 <span className="">Thubnail Image</span>
                             </label>
-                            <div className="card-body justify-center items-center border rounded-md">
+                            <div className="card-body justify-center items-center border input-bordered rounded-md">
                                 <input {...register("taskImage", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
                             </div>
                             {errors?.taskImage?.type === 'required' && <p className='text-red-500 text-sm pt-1'>Please upload the image</p>}

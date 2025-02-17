@@ -88,7 +88,7 @@ const BuyerHome = () => {
                     <h2 className='text-2xl'>{userInfo?.displayName}</h2>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-6'>
-                    <div className='bg-base-100 p-6 border rounded-md'>
+                    <div className='bg-base-100 p-6 border border-base-100 rounded-md'>
                         <div className='flex justify-between'>
                             <div className='space-y-4'>
                                 <h6 className='uppercase text-xs'>Total Task</h6>
@@ -98,13 +98,13 @@ const BuyerHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#7744a7] rounded-md flex justify-center items-center'>
-                                    <GoTasklist className='text-[white] text-xl'></GoTasklist >
+                                    <GoTasklist className='text-base-100 text-xl'></GoTasklist >
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className='bg-base-100 p-6 border rounded-md'>
+                    <div className='bg-base-100 p-6 border border-base-100 rounded-md'>
                         <div className='flex justify-between'>
                             <div className='space-y-4'>
                                 <h6 className='uppercase text-xs'>Pending Task</h6>
@@ -114,14 +114,14 @@ const BuyerHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#ffc402] rounded-md flex justify-center items-center'>
-                                    <MdOutlinePendingActions className='text-[white] text-xl'></MdOutlinePendingActions>
+                                    <MdOutlinePendingActions className='text-base-100 text-xl'></MdOutlinePendingActions>
                                 </div>
                             </div>
                         </div>
                     </div>
 
 
-                    <div className='bg-base-100 p-6 border rounded-md'>
+                    <div className='bg-base-100 p-6 border border-base-100 rounded-md'>
                         <div className='flex justify-between'>
                             <div className='space-y-4'>
                                 <h6 className='uppercase text-xs'>Total Payment</h6>
@@ -131,7 +131,7 @@ const BuyerHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#3ab446] rounded-md flex justify-center items-center'>
-                                    <PiMoneyLight className='text-[white] text-xl'></PiMoneyLight >
+                                    <PiMoneyLight className='text-base-100 text-xl'></PiMoneyLight >
                                 </div>
                             </div>
                         </div>

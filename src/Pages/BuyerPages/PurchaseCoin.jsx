@@ -25,7 +25,7 @@ const PurchaseCoin = () => {
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4'>
                     {/* Card-1 */}
-                    <div className='card-body p-6 bg-base-100 hover:shadow-xl rounded-md border'>
+                    <div className='card-body p-6 bg-base-100 hover:shadow-xl rounded-md border input-bordered'>
                         <h4 className='text-sm text-[#0a65fc]'>BASIC</h4>
                         <span className='flex items-center space-x-2'> <BiSolidCoinStack className='text-xl'></BiSolidCoinStack> <h2 className='text-xl font-semibold'>10 Coins</h2> <sub className=' font-semibold'> / 1 USD</sub> </span>
                         <div className='my-4'>
@@ -60,7 +60,7 @@ const PurchaseCoin = () => {
                     </div>
                     {/* Card-3*/}
                     <div className='relative'>
-                        <div className='hidden xl:block absolute w-auto card-body bg-[#ffc402] px-4 py-3 right-6 -top-8 rounded-md text-white font-semibold'>
+                        <div className='hidden xl:block absolute w-auto card-body bg-[#ffc402] px-4 py-3 right-6 -top-8 rounded-md text-base-100 font-semibold'>
                             Most Popular
                         </div>
                         <div className='card-body p-6 bg-base-100 hover:shadow-xl rounded-md border border-[#3ab446]'>

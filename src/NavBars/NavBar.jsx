@@ -121,8 +121,8 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a href="https://github.com/mrakashsaha" target="_blank" className="btn"> <FaGithub className='text-3xl'></FaGithub> Join as Developer</a>
                     <ThemeToggle></ThemeToggle>
+                    <a href="https://github.com/mrakashsaha" target="_blank" className="btn"> <FaGithub className='text-3xl'></FaGithub> Join as Developer</a>
                 </div>
             </div>
         </div>

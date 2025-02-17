@@ -5,44 +5,40 @@ import useMyTask from '../hook/useMyTask';
 import useUserInfo from '../hook/useUserInfo';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
+import { RiHome9Line } from 'react-icons/ri';
+import { MdHistory, MdOutlineManageAccounts, MdPostAdd } from 'react-icons/md';
+import { BiPurchaseTagAlt, BiTask } from 'react-icons/bi';
+import { LuClipboardList } from 'react-icons/lu';
+import { FiSend } from 'react-icons/fi';
+import { IoCashOutline } from 'react-icons/io5';
+import { BsDatabaseGear } from 'react-icons/bs';
 
 const DashBoardNavigation = () => {
     const { myTask } = useMyTask();
     const { userInfo, isPending } = useUserInfo();
-    const { signOutFromAccount, setUser } = useContext(AuthContext);
-    const navigate = useNavigate();
 
     const workerNavOptions =
         <>
-            <li><NavLink to={"/dashboard/workerHome"}>Home</NavLink></li>
-            <li><NavLink to={"/dashboard/taskList"}>TaskList</NavLink></li>
-            <li><NavLink to={"/dashboard/mySubmissions"}>My Submissions</NavLink></li>
-            <li><NavLink to={"/dashboard/withdrawals"}>Withdrawals</NavLink></li>
+            <li><NavLink to={"/dashboard/workerHome"}> <RiHome9Line className='text-lg'></RiHome9Line> Home</NavLink></li>
+            <li><NavLink to={"/dashboard/taskList"}> <LuClipboardList className='text-lg'></LuClipboardList> TaskList</NavLink></li>
+            <li><NavLink to={"/dashboard/mySubmissions"}> <FiSend className='text-lg'></FiSend> My Submissions</NavLink></li>
+            <li><NavLink to={"/dashboard/withdrawals"}> <IoCashOutline className='text-lg'></IoCashOutline> Withdrawals</NavLink></li>
         </>
     const buyerNavOptions =
         <>
-            <li><NavLink to={"/dashboard/buyerHome"}>Home</NavLink></li>
-            <li><NavLink to={"/dashboard/addNewTask"}>Add New Tasks</NavLink></li>
-            <li><NavLink to={"/dashboard/myTask"}>My Task's ({myTask?.length})</NavLink></li>
-            <li><NavLink to={"/dashboard/purchaseCoin"}>Purchase Coin</NavLink></li>
-            <li><NavLink to={"/dashboard/paymentHistory"}>Payment History</NavLink></li>
+            <li><NavLink to={"/dashboard/buyerHome"}> <RiHome9Line className='text-lg'></RiHome9Line>Home</NavLink></li>
+            <li><NavLink to={"/dashboard/addNewTask"}> <MdPostAdd className='text-lg'></MdPostAdd> Add New Tasks</NavLink></li>
+            <li><NavLink to={"/dashboard/myTask"}> <BiTask className='text-lg'></BiTask> My Task's ({myTask?.length})</NavLink></li>
+            <li><NavLink to={"/dashboard/purchaseCoin"}> <BiPurchaseTagAlt className='text-lg'></BiPurchaseTagAlt> Purchase Coin</NavLink></li>
+            <li><NavLink to={"/dashboard/paymentHistory"}> <MdHistory className='text-lg'></MdHistory> Payment History</NavLink></li>
         </>
     const adminNavOptions =
         <>
-            <li><NavLink to={"/dashboard/adminHome"}>Home</NavLink></li>
-            <li><NavLink to={"/dashboard/manageUsers"}>Manage Users</NavLink></li>
-            <li><NavLink to={"/dashboard/manageTask"}>Manage Task</NavLink></li>
+            <li><NavLink to={"/dashboard/adminHome"}> <RiHome9Line className='text-lg'></RiHome9Line>Home</NavLink></li>
+            <li><NavLink to={"/dashboard/manageUsers"}> <MdOutlineManageAccounts className='text-lg'></MdOutlineManageAccounts> Manage Users</NavLink></li>
+            <li><NavLink to={"/dashboard/manageTask"}> <BsDatabaseGear className='text-lg'></BsDatabaseGear> Manage Task</NavLink></li>
         </>
 
-    const handleSignOut = () => {
-        signOutFromAccount()
-            .then(() => {
-                setUser(null);
-                navigate("/login")
-            }).catch((error) => {
-                console.log("signout failed");
-            });
-    }
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -59,7 +55,6 @@ const DashBoardNavigation = () => {
                         {
                             !isPending && userInfo?.role === "worker" ? workerNavOptions : userInfo?.role === "buyer" ? buyerNavOptions : userInfo?.role === "admin" ? adminNavOptions : <div className='flex mt-20 items-end justify-center'><span className="loading loading-bars loading-lg"></span></div>
                         }
-                        <li><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
                     </ul>
                 </div>
             </div>

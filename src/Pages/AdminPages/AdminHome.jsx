@@ -90,7 +90,7 @@ const AdminHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#3ab446] rounded-md flex justify-center items-center'>
-                                    <SiFreelancer className='text-[white] text-xl'></SiFreelancer>
+                                    <SiFreelancer className='text-base-100 text-xl'></SiFreelancer>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@ const AdminHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#7744a7] rounded-md flex justify-center items-center'>
-                                    <MdOutlineManageAccounts className='text-[white] text-xl'></MdOutlineManageAccounts>
+                                    <MdOutlineManageAccounts className='text-base-100 text-xl'></MdOutlineManageAccounts>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ const AdminHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#ff585c] rounded-md flex justify-center items-center'>
-                                    <IoServerOutline className='text-[white] text-xl'></IoServerOutline>
+                                    <IoServerOutline className='text-base-100 text-xl'></IoServerOutline>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ const AdminHome = () => {
                             </div>
                             <div>
                                 <div className='w-8 h-8 bg-[#ffc402] rounded-md flex justify-center items-center'>
-                                    <MdOutlinePayments className='text-[white] text-xl'></MdOutlinePayments>
+                                    <MdOutlinePayments className='text-base-100 text-xl'></MdOutlinePayments>
                                 </div>
                             </div>
                         </div>
