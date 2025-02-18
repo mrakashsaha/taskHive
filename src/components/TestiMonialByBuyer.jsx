@@ -40,7 +40,7 @@ const TestimonialByBuyer = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border border-base-300 rounded-md items-center '>
                         <div className='sm:w-[230px] flex-shrink-0'>
                             <img className='w-full h-full rounded' src={people1} alt="People1" />
                         </div>
@@ -62,7 +62,7 @@ const TestimonialByBuyer = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border border-base-300 rounded-md items-center '>
                         <div className='sm:w-[230px] h-full flex-shrink-0'>
                             <img className='w-full h-full rounded' src={people2} alt="People1" />
                         </div>
@@ -84,7 +84,7 @@ const TestimonialByBuyer = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border border-base-300 rounded-md items-center '>
                         <div className='sm:w-[230px] h-full flex-shrink-0'>
                             <img className='w-full h-full rounded' src={people3} alt="People1" />
                         </div>
@@ -106,7 +106,7 @@ const TestimonialByBuyer = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border border-base-300 rounded-md items-center '>
                         <div className='sm:w-[230px] h-full flex-shrink-0'>
                             <img className='w-full h-full rounded' src={people4} alt="People1" />
                         </div>

@@ -1,23 +1,18 @@
 import React from 'react';
 import becomeBuyer from "../assets/images/becomeBuyer.webp"
 import { Link } from 'react-router-dom';
-import { IoSearch } from 'react-icons/io5';
 import { GoCreditCard, GoFile, GoSearch } from 'react-icons/go';
-import { HiOutlineDocumentText } from 'react-icons/hi';
 import { BiSolidCoinStack } from 'react-icons/bi';
 import { IoMdCheckmark } from 'react-icons/io';
 import Footer from '../Footer/Footer';
-import Testimonials from '../components/Testimonials';
 import TestimonialByBuyer from '../components/TestiMonialByBuyer';
 
 
 const BecomeBuyer = () => {
-    const handlePurchaseCoin = ()=> {
 
-    }
     return (
         <div>
-            {/* Banner Image for about Page */}
+            {/* Banner Image for become buyer Page */}
             <div className="bg-cover"
                 style={{ backgroundImage: `url(${becomeBuyer})` }}>
                 <div className="hero-overlay bg-opacity-10"></div>
