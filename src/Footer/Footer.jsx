@@ -4,7 +4,7 @@ import { GrServers, GrTasks } from 'react-icons/gr';
 
 const Footer = () => {
     return (
-        <div className='bg-[#131313]'>
+        <div className='bg-[#131313] dark:bg-base-300'>
             <div className='container mx-auto'>
                 <footer className="footer text-neutral-content py-10 px-4 md:px-0">
                     <nav className='text-lg'>
