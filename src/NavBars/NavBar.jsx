@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaGithub, FaSignOutAlt } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import useUserInfo from '../hook/useUserInfo';
-import { BiSolidCoinStack } from 'react-icons/bi';
-import { IoServerOutline } from 'react-icons/io5';
 import ThemeToggle from '../components/ThemeToggle';
+import { PiPowerBold } from 'react-icons/pi';
+import { IoServerOutline } from 'react-icons/io5';
 
 const NavBar = () => {
     const { userInfo, isPending, refetch } = useUserInfo();
@@ -20,63 +19,6 @@ const NavBar = () => {
                 console.log("signout failed");
             });
     }
-
-    if (isPending) {
-        return (
-            <nav className='bg-base-100 navbar'>
-                <div className='container mx-auto flex justify-between lg:py-2'>
-                    <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>
-                    <span className="loading loading-bars loading-lg"></span>
-                </div>
-            </nav>
-        )
-    }
-
-    let dashboardpath;
-
-    if (userInfo?.role === "admin") {
-        dashboardpath = "/dashboard/adminHome"
-    }
-    else if (userInfo?.role === "buyer") {
-        dashboardpath = "/dashboard/buyerHome"
-    }
-    else {
-        dashboardpath = "/dashboard/workerHome"
-    }
-
-
-    const noUserMenus =
-        <>
-            <li className='text-lg'><Link to={"/login"}>Login</Link></li>
-            <li className='text-lg'><Link to={"/register"}>Register</Link></li>
-        </>
-
-    const userMenus =
-        <>
-            <li className='text-lg'><Link to={dashboardpath}>Dashboard</Link></li>
-            <li className='text-lg'> <Link to={dashboardpath}>
-                <div className='flex items-center gap-1'>
-                    <p>Balance: <span className='font-semibold'>{!isPending && userInfo?.coin}</span></p>
-                    <IoServerOutline></IoServerOutline>
-                </div>
-            </Link> </li>
-            <li className='text-lg'> <Link to={"/profile"}>
-                <div className='flex items-center gap-2'>
-                    <div className="avatar hidden lg:block">
-                        <div className="w-8 rounded-full">
-                            <img
-                                className=''
-                                alt="ProfileImage"
-                                src={!isPending && userInfo?.photoURL} />
-                        </div>
-                    </div>
-                    <div>
-                        <h2 className=''>My Profile</h2>
-                    </div>
-                </div>
-            </Link> </li>
-            <li className='text-lg'><button onClick={handleSignOut}> <FaSignOutAlt></FaSignOutAlt> Logout</button></li>
-        </>
 
     return (
         <div className='bg-base-100 sticky w-full z-20'>
@@ -101,30 +43,95 @@ const NavBar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {
-                                !loading && !user && noUserMenus
+                                isPending ?
+                                    <>
+                                        <div className="flex flex-col gap-2 items-center justify-center">
+                                            <div className="skeleton h-3 w-20"></div>
+                                            <div className="skeleton h-4 w-20"></div>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <li className='text-lg'><NavLink to={userInfo?.role === "admin" ? "/dashboard/adminHome" : userInfo?.role === "buyer" ? "/dashboard/buyerHome" : "/dashboard/workerHome"}>Dashboard</NavLink></li>
+                                    </>
                             }
-                            {
-                                !loading && user && userMenus
-                            }
+                            <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
+
                         </ul>
                     </div>
                     <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 space-x-2">
                         {
-                            !loading && !user && noUserMenus
+                            isPending ?
+                                <>
+                                    <div className="flex flex-col gap-2 items-center justify-center">
+                                        <div className="skeleton h-3 w-20"></div>
+                                        <div className="skeleton h-4 w-20"></div>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <li className='text-lg'><NavLink to={userInfo?.role === "admin" ? "/dashboard/adminHome" : userInfo?.role === "buyer" ? "/dashboard/buyerHome" : "/dashboard/workerHome"}>Dashboard</NavLink></li>
+                                </>
                         }
-                        {
-                            !loading && user && userMenus
-                        }
+                        <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
+
                     </ul>
                 </div>
                 <div className="navbar-end">
                     <ThemeToggle></ThemeToggle>
-                    <a href="https://github.com/mrakashsaha" target="_blank" className="btn"> <FaGithub className='text-3xl'></FaGithub> Join as Developer</a>
+                    <div className="dropdown dropdown-end">
+                        {isPending ?
+                            <>
+                                <div className="flex items-center gap-4">
+                                    <div className="skeleton h-12 w-12 shrink-0 rounded-full"></div>
+                                    <div className="flex flex-col gap-4">
+                                        <div className="skeleton h-4 w-20"></div>
+                                        <div className="skeleton h-4 w-28"></div>
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            userInfo ?
+
+                                <>
+                                    <div className='flex'>
+                                        <div className='flex gap-4 px-4'>
+                                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                                <div className="w-16 rounded-full">
+                                                    <img
+                                                        alt="ProfileImage"
+                                                        src={userInfo?.photoURL} />
+                                                </div>
+                                            </div>
+                                            <div className='hidden sm:block'>
+                                                <h2>{userInfo?.displayName}</h2>
+                                                <div className='flex items-center gap-x-2'>
+                                                    <p className=''>{userInfo?.role?.[0].toUpperCase() + userInfo?.role?.slice(1)}</p>
+                                                    <p className='flex items-center gap-1'>
+                                                        <IoServerOutline></IoServerOutline>
+                                                        {!isPending && userInfo?.coin}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='px-4 border-base-200'>
+                                            <button className='btn bg-[#ff585c] hover:bg-[#fe4f52] text-base-100' onClick={handleSignOut}> <PiPowerBold className='text-lg hidden xl:block'></PiPowerBold>Logout</button>
+                                        </div>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <Link className='btn bg-[#0A65FC] hover:bg-[#0244b0] text-base-100' to={"/login"}>Login</Link>
+                                </>
+                        }
+
+                    </div>
                 </div>
             </div>
+
         </div>
     );
 };

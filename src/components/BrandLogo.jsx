@@ -11,8 +11,8 @@ import visa from "../assets/trustedBy/visa.svg"
 
 const BrandLogo = () => {
     return (
-        <div className='my-10'>
-            <Marquee pauseOnHover gradient speed={100}>
+        <div className='my-10 container mx-auto'>
+            <Marquee pauseOnHover speed={100}>
 
                 <img src={abbott} alt="Abbott" />
 

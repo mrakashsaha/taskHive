@@ -26,13 +26,13 @@ const DashBoardNavBar = () => {
                 <div className="flex-1">
                     <Link to={"/"} className="btn btn-ghost text-xl">TaskHive</Link>
                 </div>
-                <div className="flex-none gap-2">
+                <div className="flex items-center md:gap-4">
                     <div>
                         <ThemeToggle></ThemeToggle>
                     </div>
                     <div className="flex items-center gap-x-4">
                         <div>
-                            <h2 className='btn rounded-full flex items-center justify-center gap-2 text-xl'> <BiSolidCoinStack className='text-2xl'></BiSolidCoinStack>{userInfo?.coin}</h2>
+                            <h2 className='btn rounded-full flex items-center justify-center md:gap-2 text-md md:text-xl'> <BiSolidCoinStack className='text-lg md:text-2xl'></BiSolidCoinStack>{userInfo?.coin}</h2>
                         </div>
                     </div>
                     <div className="dropdown dropdown-end">
@@ -64,8 +64,8 @@ const DashBoardNavBar = () => {
                             </>}
 
                     </div>
-                    <div className='px-4 border-base-200'>
-                        <button className='btn' onClick={handleSignOut}> <PiPowerBold className='text-lg'></PiPowerBold> Logout</button>
+                    <div className='md:px-1'>
+                        <button className='btn bg-[#ff585c] hover:bg-[#fe4f52] text-base-100' onClick={handleSignOut}> <PiPowerBold className='text-lg hidden md:block'></PiPowerBold> Logout</button>
                     </div>
                 </div>
             </div>
