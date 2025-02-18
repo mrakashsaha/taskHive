@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCircleCheck } from 'react-icons/fa6';
-import xpModel from '../assets/xp/model.jpg'
+import xpModel from '../assets/xp/model.png'
 import xpBadge1 from '../assets/xp/xpBadge1.png'
 import xpBadge2 from '../assets/xp/xpBadge2.png'
 import { Link } from 'react-router-dom';

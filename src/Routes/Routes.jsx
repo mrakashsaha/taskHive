@@ -23,6 +23,9 @@ import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
 import WorkerRoute from "./WorkerRoute";
 import ErrorPage from "../components/ErrorPage";
+import AboutUs from "../Pages/AboutUs";
+import BecomeSeller from "../Pages/BecomeBuyer";
+import BecomeBuyer from "../Pages/BecomeBuyer";
 
 
 
@@ -45,8 +48,12 @@ export const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: "/profile",
-        element: <UserProfile></UserProfile>
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: "/buyer",
+        element: <BecomeBuyer></BecomeBuyer>
       },
     ]
   },

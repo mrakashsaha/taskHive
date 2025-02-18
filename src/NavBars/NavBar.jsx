@@ -51,11 +51,14 @@ const NavBar = () => {
                                         </div>
                                     </>
                                     :
+                                    userInfo?.role &&
                                     <>
                                         <li className='text-lg'><NavLink to={userInfo?.role === "admin" ? "/dashboard/adminHome" : userInfo?.role === "buyer" ? "/dashboard/buyerHome" : "/dashboard/workerHome"}>Dashboard</NavLink></li>
                                     </>
                             }
                             <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
+                            <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
+                            <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
 
                         </ul>
                     </div>
@@ -72,11 +75,14 @@ const NavBar = () => {
                                     </div>
                                 </>
                                 :
+                                userInfo?.role &&
                                 <>
                                     <li className='text-lg'><NavLink to={userInfo?.role === "admin" ? "/dashboard/adminHome" : userInfo?.role === "buyer" ? "/dashboard/buyerHome" : "/dashboard/workerHome"}>Dashboard</NavLink></li>
                                 </>
                         }
                         <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
+                        <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
+                        <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
 
                     </ul>
                 </div>
