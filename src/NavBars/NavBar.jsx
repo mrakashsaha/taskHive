@@ -42,6 +42,9 @@ const NavBar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
+                            <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
+                            <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
                             {
                                 isPending ?
                                     <>
@@ -56,16 +59,18 @@ const NavBar = () => {
                                         <li className='text-lg'><NavLink to={userInfo?.role === "admin" ? "/dashboard/adminHome" : userInfo?.role === "buyer" ? "/dashboard/buyerHome" : "/dashboard/workerHome"}>Dashboard</NavLink></li>
                                     </>
                             }
-                            <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
-                            <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
-                            <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
+
 
                         </ul>
                     </div>
                     <Link to={"/"} className="btn btn-ghost text-2xl font-semibold">TaskHive</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
+
                     <ul className="menu menu-horizontal px-1 space-x-2">
+                        <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
+                        <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
+                        <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
                         {
                             isPending ?
                                 <>
@@ -80,10 +85,6 @@ const NavBar = () => {
                                     <li className='text-lg'><NavLink to={userInfo?.role === "admin" ? "/dashboard/adminHome" : userInfo?.role === "buyer" ? "/dashboard/buyerHome" : "/dashboard/workerHome"}>Dashboard</NavLink></li>
                                 </>
                         }
-                        <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
-                        <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
-                        <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
-
                     </ul>
                 </div>
                 <div className="navbar-end">

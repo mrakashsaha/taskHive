@@ -9,49 +9,56 @@ import team3 from "../assets/team/team3.jpg"
 import team4 from "../assets/team/team4.jpg"
 import team5 from "../assets/team/team2.jpg"
 import team6 from "../assets/team/team5.jpg"
+import building from "../assets/images/building.webp"
 import Footer from '../Footer/Footer';
+import { IoLocationOutline } from 'react-icons/io5';
+import { LuPhoneCall } from 'react-icons/lu';
+import { MdOutlineMailOutline } from 'react-icons/md';
+import { GoMail } from 'react-icons/go';
+import { PiPhoneCallLight } from 'react-icons/pi';
+import { VscCallOutgoing } from 'react-icons/vsc';
 
 const AboutUs = () => {
 
     const teamMembers = [
         {
-          id: 1,
-          name: "John Doe",
-          designation: "CEO",
-          image: team1
+            id: 1,
+            name: "John Doe",
+            designation: "CEO",
+            image: team1
         },
         {
-          id: 2,
-          name: "Jane Smith",
-          designation: "Marketing Director",
-          image: team2
+            id: 2,
+            name: "Jane Smith",
+            designation: "Marketing Director",
+            image: team2
         },
         {
-          id: 3,
-          name: "Michael Lee",
-          designation: "Lead Developer",
-          image: team3
+            id: 3,
+            name: "Michael Lee",
+            designation: "Lead Developer",
+            image: team3
         },
         {
-          id: 4,
-          name: "Emily Carter",
-          designation: "Product Manager",
-          image: team4
+            id: 4,
+            name: "Emily Carter",
+            designation: "Product Manager",
+            image: team4
         },
         {
-          id: 5,
-          name: "David Wilson",
-          designation: "Operations Head",
-          image: team5
+            id: 5,
+            name: "David Wilson",
+            designation: "Operations Head",
+            image: team5
         },
         {
-          id: 6,
-          name: "Sophia Brown",
-          designation: "HR Manager",
-          image: team6
+            id: 6,
+            name: "Sophia Brown",
+            designation: "HR Manager",
+            image: team6
         }
-      ];
-      
+    ];
+
 
 
 
@@ -133,6 +140,71 @@ const AboutUs = () => {
                     <p className='uppercase text-[#0A65FC] font-medium'>OUR LOCATIONS</p>
                     <h2 className='text-4xl font-medium'>Find us at our global hubs</h2>
                     <p className='text-lg'>Discover our global hubs, where innovation meets opportunity.</p>
+                </div>
+                <div className='flex items-center flex-col-reverse md:flex-row gap-10 my-20'>
+                    <div className='flex-1 space-y-4'>
+                        <div tabIndex={0} className="collapse p-6 collapse-arrow border-base-300 bg-base-100 border">
+                            <div className="collapse-title text-2xl font-medium">New York, USA</div>
+                            <div className="collapse-content">
+                                <p className='text-lg'>We’d love to hear from you! Reach out to us for any inquiries or support, and we’ll get back to you as soon as possible.</p>
+                                <div className='my-4 space-y-2'>
+                                    <div className='flex items-center gap-4 text-lg'>
+                                        <IoLocationOutline className='text-3xl text-[#0A65FC]'></IoLocationOutline>
+                                        <div>
+                                            <p>Location</p>
+                                            <p>1234 Broadway, New York, NY 10001</p>
+                                        </div>
+                                    </div>
+                                    <div className='flex items-center gap-4 text-lg'>
+                                        <VscCallOutgoing className='text-3xl text-[#0A65FC]'></VscCallOutgoing>
+                                        <div>
+                                            <p>Phone</p>
+                                            <p>+1 212 555 7890</p>
+                                        </div>
+                                    </div>
+                                    <div className='flex items-center gap-4 text-lg'>
+                                        <GoMail  className='text-3xl text-[#0A65FC]'></GoMail>
+                                        <div>
+                                            <p>Email</p>
+                                            <p>support@taskhive.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div tabIndex={0} className="collapse p-6 collapse-arrow border-base-300 bg-base-100 border">
+                            <div className="collapse-title text-2xl font-medium">London, England</div>
+                            <div className="collapse-content">
+                                <p className='text-lg'>We’d love to hear from you! Reach out to us for any inquiries or support, and we’ll get back to you as soon as possible.</p>
+                                <div className='my-4 space-y-2'>
+                                    <div className='flex items-center gap-4 text-lg'>
+                                        <IoLocationOutline className='text-3xl text-[#0A65FC]'></IoLocationOutline>
+                                        <div>
+                                            <p>Location</p>
+                                            <p>10 Downing Street, London, SW1A 2AA</p>
+                                        </div>
+                                    </div>
+                                    <div className='flex items-center gap-4 text-lg'>
+                                        <VscCallOutgoing className='text-3xl text-[#0A65FC]'></VscCallOutgoing>
+                                        <div>
+                                            <p>Phone</p>
+                                            <p>+44 20 7946 0958</p>
+                                        </div>
+                                    </div>
+                                    <div className='flex items-center gap-4 text-lg'>
+                                        <GoMail  className='text-3xl text-[#0A65FC]'></GoMail>
+                                        <div>
+                                            <p>Email</p>
+                                            <p>contact@taskhive.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex-1'>
+                        <img src={building} alt="Building" />
+                    </div>
                 </div>
             </div>
             <Footer></Footer>
