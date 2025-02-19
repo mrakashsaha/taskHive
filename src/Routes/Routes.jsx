@@ -26,6 +26,7 @@ import ErrorPage from "../components/ErrorPage";
 import AboutUs from "../Pages/AboutUs";
 import BecomeSeller from "../Pages/BecomeBuyer";
 import BecomeBuyer from "../Pages/BecomeBuyer";
+import FAQ from "../Pages/FAQ";
 
 
 
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "/buyer",
         element: <BecomeBuyer></BecomeBuyer>
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>
       },
     ]
   },

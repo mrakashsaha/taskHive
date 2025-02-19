@@ -45,6 +45,7 @@ const NavBar = () => {
                             <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
                             <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
                             <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
+                            <li className='text-lg'><NavLink to={"/faq"}>FAQ's</NavLink></li>
                             {
                                 isPending ?
                                     <>
@@ -71,6 +72,7 @@ const NavBar = () => {
                         <li className='text-lg'><NavLink to={"/"}>Home</NavLink></li>
                         <li className='text-lg'><NavLink to={"/aboutUs"}>About Us</NavLink></li>
                         <li className='text-lg'><NavLink to={"/buyer"}>Become a Buyer</NavLink></li>
+                        <li className='text-lg'><NavLink to={"/faq"}>FAQ's</NavLink></li>
                         {
                             isPending ?
                                 <>
