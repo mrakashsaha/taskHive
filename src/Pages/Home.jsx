@@ -7,15 +7,17 @@ import BrandLogo from '../components/BrandLogo';
 import Testimonials from '../components/Testimonials';
 import Subscribe from '../components/Subscribe';
 import StableService from '../components/StableService';
+import FeaturedTask from '../components/FeaturedTask';
 
 const Home = () => {
     return (
         <div>
             <Hero></Hero>
             <BrandLogo></BrandLogo>
-            <TopWorkers></TopWorkers>
+            <FeaturedTask></FeaturedTask>
             <StartAsWorker></StartAsWorker>
             <StableService></StableService>
+            <TopWorkers></TopWorkers>
             <Subscribe></Subscribe>
             <Testimonials></Testimonials>
             <Footer></Footer>

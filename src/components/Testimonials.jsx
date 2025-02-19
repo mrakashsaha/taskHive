@@ -14,7 +14,7 @@ import { BiSolidQuoteRight } from 'react-icons/bi';
 
 const Testimonials = () => {
     return (
-        <div className='container mx-auto my-20 p-2 sm:p-0'>
+        <div className='container mx-auto my-20 p-2'>
             <div className='my-10'>
                 <h2 className='text-3xl font-medium text-center'>What Users Say About Us</h2>
                 <p className='text-center w-11/12 sm:w-1/2 mx-auto'>Hear from our community of buyers and workers about their seamless experiences and success stories on our platform.</p>
@@ -40,9 +40,9 @@ const Testimonials = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
-                        <div className='w-[230px] h-full flex-shrink-0'>
-                            <img className='w-full h-full rounded' src={people1} alt="People1" />
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border input-bordered rounded-md items-center '>
+                        <div className='w-full h-[400px] sm:w-[230px] sm:h-full flex-shrink-0'>
+                            <img className='w-full h-full object-top object-cover rounded' src={people1} alt="People1" />
                         </div>
                         <div className='p-4 space-y-4'>
                             <div><BiSolidQuoteRight className='text-4xl text-[#0A65FC]'></BiSolidQuoteRight ></div>
@@ -62,9 +62,9 @@ const Testimonials = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
-                        <div className='w-[230px] h-full flex-shrink-0'>
-                            <img className='w-full h-full rounded' src={people2} alt="People1" />
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border input-bordered rounded-md items-center '>
+                        <div className='w-full h-[400px] sm:w-[230px] sm:h-full flex-shrink-0'>
+                            <img className='w-full h-full object-top object-cover rounded' src={people2} alt="People1" />
                         </div>
                         <div className='p-4 space-y-4'>
                             <div><BiSolidQuoteRight className='text-4xl text-[#0A65FC]'></BiSolidQuoteRight ></div>
@@ -84,9 +84,9 @@ const Testimonials = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
-                        <div className='w-[230px] h-full flex-shrink-0'>
-                            <img className='w-full h-full rounded' src={people3} alt="People1" />
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border input-bordered rounded-md items-center '>
+                        <div className='w-full h-[400px] sm:w-[230px] sm:h-full flex-shrink-0'>
+                            <img className='w-full h-full object-cover object-center rounded' src={people3} alt="People1" />
                         </div>
                         <div className='p-4 space-y-4'>
                             <div><BiSolidQuoteRight className='text-4xl text-[#0A65FC]'></BiSolidQuoteRight ></div>
@@ -106,9 +106,9 @@ const Testimonials = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border rounded-md items-center '>
-                        <div className='w-[230px] h-full flex-shrink-0'>
-                            <img className='w-full h-full rounded' src={people4} alt="People1" />
+                    <div className='flex flex-col sm:flex-row gap-4 bg-base-100 border input-bordered rounded-md items-center '>
+                        <div className='w-full h-[400px] sm:w-[230px] sm:h-full flex-shrink-0'>
+                            <img className='w-full h-full object-cover object-top rounded' src={people4} alt="People1" />
                         </div>
                         <div className='p-4 space-y-4'>
                             <div><BiSolidQuoteRight className='text-4xl text-[#0A65FC]'></BiSolidQuoteRight ></div>

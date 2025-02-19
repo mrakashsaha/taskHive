@@ -2,7 +2,7 @@ import React from 'react';
 import aboutUs from "../assets/images/aboutUs.jpg"
 import workEnv from "../assets/images/workenv.webp"
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaFacebookF, FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
+import { FaFacebook, FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import team1 from "../assets/team/team1.jpg"
 import team2 from "../assets/team/team6.jpg"
 import team3 from "../assets/team/team3.jpg"
@@ -12,10 +12,7 @@ import team6 from "../assets/team/team5.jpg"
 import building from "../assets/images/building.webp"
 import Footer from '../Footer/Footer';
 import { IoLocationOutline } from 'react-icons/io5';
-import { LuPhoneCall } from 'react-icons/lu';
-import { MdOutlineMailOutline } from 'react-icons/md';
 import { GoMail } from 'react-icons/go';
-import { PiPhoneCallLight } from 'react-icons/pi';
 import { VscCallOutgoing } from 'react-icons/vsc';
 
 const AboutUs = () => {
@@ -70,15 +67,15 @@ const AboutUs = () => {
                 <div className="hero-overlay bg-opacity-30"></div>
                 <div className="hero-content text-base-100 dark:text-white/70">
                     <div className="p-4 py-32 space-y-4 text-center">
-                        <h2 className='text-5xl font-medium leading-snug'>We help people build <br />businesses</h2>
-                        <p className='text-lg'>We empower businesses by connecting top talent</p>
+                        <h2 className='text-3xl md:text-5xl font-medium md:leading-snug'>We help people build <br />businesses</h2>
+                        <p className='md:text-lg'>We empower businesses by connecting top talent</p>
                     </div>
                 </div>
             </div>
 
             {/* About Company Section */}
             <div>
-                <div className='max-w-lg mx-auto text-center my-20 space-y-2'>
+                <div className='max-w-lg p-4 md:p-0 mx-auto text-center my-20 space-y-2'>
                     <p className='uppercase text-[#0A65FC] font-medium'>About company</p>
                     <h2 className='text-4xl font-medium'>Now, Let's Grow Yours!</h2>
                     <p className='text-lg'>We empower people worldwide to turn their work dreams into reality—building successful businesses from the ground up and achieving financial and professional independence.</p>

@@ -1,15 +1,17 @@
 import React from 'react';
 import { BsGlobe } from 'react-icons/bs';
+import { FaRegHeart } from 'react-icons/fa6';
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
+import { IoMdHeartEmpty } from 'react-icons/io';
 import { IoLocationOutline, IoServerOutline } from 'react-icons/io5';
 
-const ProfileCard = ({worker}) => {
+const ProfileCard = ({ worker }) => {
   return (
-    <div className='card-body border-2 min-w-72 rounded-md font-medium'>
+    <div className='card-body border border-[#ffd75e] bg-[#fffbf1] dark:bg-base-200 rounded-xl font-medium'>
       <div>
-        <div className='flex flex-col justify-center items-center space-y-4 pb-4'>
+        <div className='flex flex-col justify-center items-center space-y-4'>
           <div className="avatar">
-            <div className="w-24 rounded-full">
+            <div className="w-20 rounded-full">
               <img src={worker?.photoURL} />
             </div>
           </div>
@@ -31,34 +33,38 @@ const ProfileCard = ({worker}) => {
               <div className='text-lg'>English / Bengali</div>
             </div>
           </div>
-        <div className='flex gap-2'>
-          <label className='text-lg'>
-            Ratting:
-          </label>
-          <div className="rating">
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-              defaultChecked />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-              defaultChecked />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-              defaultChecked />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-              defaultChecked />
+          <div className='flex gap-4 border-b pb-6'>
+            <button className='badge bg-base-200 p-4'>Available</button>
+            <button className='badge bg-base-200 p-4'>Verified Seller</button>
           </div>
-        </div>
+          <div className='flex gap-2'>
+            <label className='text-lg'>
+              Ratting:
+            </label>
+            <div className="rating">
+              <input type="radio" name="rating-2" className="mask mask-star-2 bg-[#ffd75e]" />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-[#ffd75e]"
+                defaultChecked />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-[#ffd75e]"
+                defaultChecked />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-[#ffd75e]"
+                defaultChecked />
+              <input
+                type="radio"
+                name="rating-2"
+                className="mask mask-star-2 bg-[#ffd75e]"
+                defaultChecked />
+            </div>
+          </div>
         </div>
       </div>
     </div>
