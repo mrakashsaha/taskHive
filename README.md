@@ -8,8 +8,8 @@ TaskHive is a micro-tasking platform that connects Buyers and Workers to efficie
 
 🔗 **Live Website:** [Task-Hive](https://task-hive-1.web.app)  
 👨‍💻 **Admin Login Credentials:**  
-- **Username:** mr.akashsaha@gmail.com  
-- **Password:** Aa@111  
+- **Username:** admin@taskhive.com  
+- **Password:** Akash@1234  
 
 ---
 
